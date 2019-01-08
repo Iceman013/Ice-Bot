@@ -29,7 +29,7 @@ var a = 0
 var activate = 0
 var timecheck
 var pingID
-
+var sentTo = channelID
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
@@ -61,12 +61,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
         let pingcheck = new Date()
-        bot.deleteMessage({
-            channelID: channelID,
-            messageID: pingID
-        })
         bot.sendMessage({
-            to: channelID,
+            to: sentTo,
             embed: {
                 title: 'Information Test',
                 color: 305071,
@@ -99,7 +95,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     }
     if (output != ''){
         bot.sendMessage({
-            to: channelID,
+            to: '532023767073816576',
             message: output}, function(err, res){
             console.log(res.id)
             console.log(res)
