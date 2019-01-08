@@ -33,8 +33,8 @@ var sentTo
 var prevSentTo
 
 bot.on('message', function (user, userID, channelID, message, evt){
-    sentTo = channelID
     prevSentTo = sentTo;
+    sentTo = channelID
     output = ''
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
