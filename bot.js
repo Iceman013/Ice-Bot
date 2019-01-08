@@ -79,15 +79,16 @@ bot.on('message', function (user, userID, channelID, message, evt){
             to: prevSentTo,
             message: 'Monkeytoes999 helps develop this bot'
         }, function (err, res){
+		console.log(res)
             setTimeout(() => {
 				bot.editMessage({
-                    channelID: prevSentTo,
+                    channelID: res.channelID,
                     messageID: res.id,
                     message: 'Check out this other bot that he works on!'
                 }, function (errr, ress){
                     setTimeout(() => {
                         bot.editMessage({
-                            channelID: prevSentTo,
+                            channelID: res.channelID,
                             messageID: res.id,
                             message: 'https://discordbots.org/bot/495705429150793739'
                         });
