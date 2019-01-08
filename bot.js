@@ -89,7 +89,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'Test is successful.'
             }
             if (a == 1){
-                channelIDB = channelI
+                channelIDB = channelID
                 bot.sendMessage({
                     to: '532160160941211658',
                     message: 'ct001n:ping'})
