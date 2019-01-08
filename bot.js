@@ -97,9 +97,18 @@ bot.on('message', function (user, userID, channelID, message, evt){
         }
     }
     if (output != ''){
-        bot.sendMessage({
-            to: '532023767073816576',
-            message: output}, function(err, res){
-            pingID = res.id})
+        let sent = false;
+        if(output.substring(0, 8) == 'ct001n:'){
+            bot.sendMessage({
+                to: '532023767073816576',
+                message: output}, function(err, res){
+                pingID = res.id})
+            sent = true;
+        }
+        if (!sent){
+            bot.sendMessage({
+                to: channelID,
+                message: output})
+        }
     }
 })
