@@ -89,7 +89,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
         while (input.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
         }
-        if (commands.includes(inputB) && (commandsA.includes(inputB) == access.includes(userID))){
+        if (commands.includes(inputB) && (commandsB.includes(inputB) || access.includes(userID))){
             a = 0
             if (commands[a] != inputB){
                 while (a < commands.length && commands[a] != inputB){
