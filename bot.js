@@ -28,7 +28,7 @@ var invited = 0
 var a = 0
 var activate = 0
 var timecheck
-var commMessID
+var pingID
 
 
 bot.on('message', function (user, userID, channelID, message, evt){
@@ -63,7 +63,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
         let pingcheck = new Date()
         bot.deleteMessage({
             channelID: channelID,
-            messageID: commMessID
+            messageID: pingID
         })
         bot.sendMessage({
             to: channelID,
@@ -103,6 +103,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
             message: output}, function(err, res){
             console.log(res.id)
             console.log(res)
-            commMessID = res.id})
+            pingID = res.id})
     }
 })
