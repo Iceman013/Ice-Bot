@@ -68,7 +68,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         value: new Date(0) - timecheck}]}})
     }
     if (message.substring(0, start.length) == start){
-        input = message.substring(start.length, message.length).toLowercase()
+        input = message.substring(start.length, message.length).toLowerCase()
         inputB = input
         while (input.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
