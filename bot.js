@@ -25,9 +25,9 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list']
+var commands = ['test','info','list','help']
 var commamdsA = ['test','info']
-var commandsB = ['list']
+var commandsB = ['list','help']
 var invited = 0
 var a = 0
 var activate = 0
@@ -137,6 +137,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 value: outputC
                             }
                         ]}})
+            }
+            if (a == 3){
+                output = 'This command is coming soon. Please wait.'
             }
         }
     }
