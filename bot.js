@@ -120,8 +120,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     outputC = outputC + ' `' + commandsB[b] + '`'
                     b = b + 1
                 }
-                if (!access.includes(userID)){
-                    outputB = 'You must have higher clearance to view thia section.'
+                if (access.includes(userID) == false){
+                    outputB = 'You must have higher clearance to view this section.'
                 }
                 bot.sendMessage({
                     to: channelID,
