@@ -35,6 +35,7 @@ var channelIDB = ''
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
+    outputB = ''
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
         channel = bot.channels[channelID];
@@ -103,7 +104,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 2){
                 outputB = '`' + commands[0] + '`'
                 a = 0
-                while (commands.length > a){
+                while (commands.length > a + 1){
                     a = a + 1
                     outputB = outputB + ' `' + commands[a] + '`'
                 }
@@ -112,6 +113,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     message: outputB,
                     embed: {
                         title: 'Commands',
+                        color: 305071,
                         fields: [
                             {
                                 name: 'Stage 1',
