@@ -94,12 +94,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
         }
     }
     if (output != ''){
-        let sent = false;
-        if(output.substring(0, 7) == 'ct001n:'){
-            bot.sendMessage({
-                to: '532023767073816576',
-                message: output}, function(err, res){
-                pingID = res.id})
-        }
+        bot.sendMessage({
+            to: channelID,
+            message: output})
     }
 })
