@@ -23,18 +23,15 @@ var start = '$'
 var input = ''
 var inputB = ''
 var output = ''
-var commands = ['test','ping','monkeytoes999']
+var commands = ['test','ping']
 var invited = 0
 var a = 0
 var activate = 0
-var timecheck
-var pingID
-var sentTo
-var prevSentTo
+var timecheck = 0
+var timecheckB = 0
+var pingID = ''
 
 bot.on('message', function (user, userID, channelID, message, evt){
-    prevSentTo = sentTo;
-    sentTo = channelID
     output = ''
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
@@ -63,9 +60,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 name: 'in ' + invited + ' servers'}})
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
-        let pingcheck = new Date()
+        timecheckB = new Date()
         bot.sendMessage({
-            to: prevSentTo,
+            to: channelID,
             embed: {
                 title: 'Information Test',
                 color: 305071,
@@ -73,28 +70,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     {
                         name: 'Ping',
                         value: pingcheck.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
-    }
-    if (message == 'ct001n:monkeytoes' && userID == '520039060660682771'){
-        bot.sendMessage({
-            to: prevSentTo,
-            message: 'Monkeytoes999 helps develop this bot'
-        }, function (err, res){
-            setTimeout(() => {
-				bot.editMessage({
-                    channelID: res.channel_id,
-                    messageID: res.id,
-                    message: 'Check out this other bot that he works on!'
-                }, function (errr, ress){
-                    setTimeout(() => {
-                        bot.editMessage({
-                            channelID: res.channel_id,
-                            messageID: res.id,
-                            message: 'https://discordbots.org/bot/495705429150793739'
-                        });
-                    }, 3000)
-                });
-            }, 3000)
-        })
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
@@ -116,9 +91,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'ct001n:ping'
                 timecheck = new Date()
             }
-            if (a == 2){
-                output = 'ct001n:monkeytoes'
-            }
         }
     }
     if (output != ''){
@@ -128,12 +100,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 to: '532023767073816576',
                 message: output}, function(err, res){
                 pingID = res.id})
-            sent = true;
-        }
-        if (!sent){
-            bot.sendMessage({
-                to: channelID,
-                message: output})
         }
     }
 })
