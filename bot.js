@@ -59,7 +59,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 name: 'in ' + invited + ' servers'}})
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
-        var pingcheck = new Date(0)
+        let pingcheck = new Date()
         bot.sendMessage({
             to: channelID,
             embed: {
@@ -88,7 +88,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 1){
                 output = 'ct001n:ping'
-                timecheck = new Date(0)
+                timecheck = new Date()
             }
         }
     }
