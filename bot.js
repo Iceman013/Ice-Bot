@@ -65,7 +65,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
         let pingcheck = new Date()
         bot.sendMessage({
-            to: sentTo,
+            to: prevSentTo,
             embed: {
                 title: 'Information Test',
                 color: 305071,
