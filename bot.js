@@ -100,8 +100,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.sendMessage({
             to: '532023767073816576',
             message: output}, function(err, res){
-            console.log(res.id)
-            console.log(res)
             pingID = res.id})
     }
 })
