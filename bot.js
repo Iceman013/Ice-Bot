@@ -69,7 +69,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 fields: [
                     {
                         name: 'Ping',
-                        value: pingcheck.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
+                        value: timecheckB.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
