@@ -18,11 +18,37 @@ bot.on('ready',function(evt){
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
+var start = '$'
+var input = ''
+var inputB = ''
+var output = ''
+var commands = ['test']
+var a = 0
+
 bot.on('message', function (user, userID, channelID, message, evt){
-    if (message == '$test'){
+    output = ''
+    if (message.substring(0, start.length) == start){
+        input = message.substring(start.length, message.length)
+        inputB = input
+        while (input.includes(' ')){
+            inputB = inputB.substring(0, inputB.length - 1)
+        }
+        if (commands.includes(inputB)){
+            a = 0
+            while (a < commands.length && commands[a] != inputB){
+                a = a + 1
+            }
+            if (a == 0){
+                output = 'Test is successful.'
+            }
+        }
+    }
+    if (output != ''){
         bot.sendMessage({
             to: channelID,
-            message: 'Test successful.'
-        })
+            message: output})
+    }
+            
     }
 })
