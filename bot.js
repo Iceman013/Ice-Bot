@@ -75,7 +75,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 fields: [
                     {
                         name: 'Ping',
-                        value: pingcheck.getMilliseconds() - timecheck.getMilliseconds()}]}})
+                        value: pingcheck.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
@@ -104,6 +104,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
             to: channelID,
             message: output}, function(err, res){
             console.log(err + '\n' + res)
-            commMessID = res.id})
+            commMessID = res.d.id})
     }
 })
