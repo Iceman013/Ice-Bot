@@ -64,8 +64,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.deleteMessage({
             channelID: channelID,
             messageID: commMessID
-        }, function(err, res){
-            console.log(err + '\n' + res);
         })
         bot.sendMessage({
             to: channelID,
@@ -103,7 +101,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.sendMessage({
             to: channelID,
             message: output}, function(err, res){
-            console.log(err + '\n' + res)
-            commMessID = res.d.id})
+            console.log(res.id)
+            console.log(res)
+            commMessID = res.id})
     }
 })
