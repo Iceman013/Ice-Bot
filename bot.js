@@ -24,7 +24,10 @@ var input = ''
 var inputB = ''
 var output = ''
 var outputB = ''
+var outputC = ''
 var commands = ['test','info','list']
+var commamdsA = ['test','info']
+var commandsB = ['list']
 var invited = 0
 var a = 0
 var activate = 0
@@ -32,10 +35,12 @@ var timecheck = 0
 var timecheckB = 0
 var pingID = ''
 var channelIDB = ''
+var access = ['486985623161274378','393586279964475393']
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
     outputB = ''
+    outputC = ''
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
         channel = bot.channels[channelID];
@@ -84,7 +89,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
         while (input.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
         }
-        if (commands.includes(inputB)){
+        if (commands.includes(inputB) && (commandsA.includes(inputB) == access.includes(userID))){
             a = 0
             if (commands[a] != inputB){
                 while (a < commands.length && commands[a] != inputB){
@@ -102,22 +107,34 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 timecheck = new Date()
             }
             if (a == 2){
-                outputB = '`' + commands[0] + '`'
+                outputB = '`' + commandsA[0] + '`'
                 a = 0
-                while (commands.length > a + 1){
+                while (commandsA.length > a + 1){
                     a = a + 1
-                    outputB = outputB + ' `' + commands[a] + '`'
+                    outputB = outputB + ' `' + commandsA[a] + '`'
+                }
+                outputC = '`' + commandsB[0] + '`'
+                a = 0
+                while (commandsB.length > a + 1){
+                    a = a + 1
+                    outputC = outputC + ' `' + commandsB[a] + '`'
+                }
+                if (!access.includes(userID)){
+                    outputB = 'You must have higher clearance to view thia section.'
                 }
                 bot.sendMessage({
                     to: channelID,
-                    message: outputB,
                     embed: {
                         title: 'Commands',
                         color: 305071,
                         fields: [
                             {
-                                name: 'Stage 1',
-                                value: outputB
+                                name: 'Creator Only',
+                                value: outputB,
+                            },
+                            {
+                                name: 'Everyone',
+                                value: outputC
                             }
                         ]}})
             }
