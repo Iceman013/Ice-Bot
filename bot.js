@@ -27,7 +27,8 @@ var commands = ['test','ping']
 var invited = 0
 var a = 0
 var activate = 0
-var timecheck;
+var timecheck
+var commMessID
 
 
 bot.on('message', function (user, userID, channelID, message, evt){
@@ -60,6 +61,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
         let pingcheck = new Date()
+        bot.deleteMessage({
+            channelID: channelID,
+            messageID: commMessID
+        });
         bot.sendMessage({
             to: channelID,
             embed: {
@@ -95,6 +100,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (output != ''){
         bot.sendMessage({
             to: channelID,
-            message: output})
+            message: output}, function(err, res){
+            commMessID = res.id})
     }
 })
