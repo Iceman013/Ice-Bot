@@ -35,9 +35,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
             inputB = inputB.substring(0, inputB.length - 1)
         }
         if (commands.includes(inputB)){
-            a = -1
-            while (a < commands.length && commands[a] != inputB){
-                a = a + 1
+            a = 0
+            if (commands[a] != inputB){
+                while (a < commands.length && commands[a] != inputB){
+                    a = a + 1
+                }
             }
             if (a == 0){
                 output = 'Test is successful.'
