@@ -23,7 +23,7 @@ var start = '$'
 var input = ''
 var inputB = ''
 var output = ''
-var commands = ['test']
+var commands = ['test','ping']
 var invited = 0
 var a = 0
 var activate = 0
@@ -33,7 +33,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
         channel = bot.channels[channelID];
-        member = bot.servers[serverID].members["520039060660682771"];
+        member = bot.servers[serverID].members['520039060660682771'];
     }
     if (activate == 0){
         invited = Object.keys(bot.servers).length
@@ -56,8 +56,19 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 type: 0,
                 name: 'in ' + invited + ' servers'}})
     }
+    if (message == 'ct001n:ping' && userID == '520039060660682771'){
+        bot.sendMessage({
+            to: channelID,
+            embed: {
+                title: 'Information Test',
+                color: 305071,
+                fields: [
+                    {
+                        name: 'Ping',
+                        value: new Date(0) - timecheck}]}})
+    }
     if (message.substring(0, start.length) == start){
-        input = message.substring(start.length, message.length)
+        input = message.substring(start.length, message.length).lowercase()
         inputB = input
         while (input.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
@@ -71,6 +82,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 0){
                 output = 'Test is successful.'
+            }
+            if (a == 1){
+                output = 'ct001n:ping'
+                timecheck = new Date(0)
             }
         }
     }
