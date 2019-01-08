@@ -23,7 +23,8 @@ var start = '$'
 var input = ''
 var inputB = ''
 var output = ''
-var commands = ['test','ping']
+var outputB = ''
+var commands = ['test','info','list']
 var invited = 0
 var a = 0
 var activate = 0
@@ -69,8 +70,12 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 color: 305071,
                 fields: [
                     {
+                        name: 'Constants',
+                        value: 'Prefix: ' + start,
+                    },
+                    {
                         name: 'Ping',
-                        value: timecheckB.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
+                        value: timecheckB.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds'}]}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
@@ -94,6 +99,25 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     to: '532160160941211658',
                     message: 'ct001n:ping'})
                 timecheck = new Date()
+            }
+            if (a == 2){
+                outputB = '`' + commands[0] + '`'
+                a = 0
+                while (commands.length > a){
+                    a = a + 1
+                    outputB = outputB + ' `' + commands[a] + '`'
+                }
+                bot.sendMessage({
+                    to: channelID,
+                    message: outputB,
+                    embed: {
+                        title: 'Commands',
+                        fields: [
+                            {
+                                name: 'Stage 1',
+                                value: outputB
+                            }
+                        ]}})
             }
         }
     }
