@@ -24,6 +24,7 @@ var input = ''
 var inputB = ''
 var output = ''
 var commands = ['test']
+var invited = 0
 var a = 0
 var activate = 0
 
@@ -35,14 +36,21 @@ bot.on('message', function (user, userID, channelID, message, evt){
         member = bot.servers[serverID].members["520039060660682771"];
     }
     if (activate == 0){
+        invited = Object.keys(bot.servers).length
         bot.sendMessage({
             to: '532011128633688076',
             message: 'Ice Bot has been activated.'})
         bot.setPresence({
             game: {
                 type: 0,
-                name: 'in ' + Object.keys(bot.servers).length + ' servers'}})
+                name: 'in ' + invited + ' servers'}})
         activate = 1
+    }
+    if (Object.keys(bot.servers).length != invited){
+        invited = Object.keys(bot.servers).length
+        bot.sendMessage({
+            to: '532011128633688076',
+            message: 'Amount of servers has changed.'})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length)
