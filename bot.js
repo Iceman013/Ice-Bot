@@ -35,7 +35,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             inputB = inputB.substring(0, inputB.length - 1)
         }
         if (commands.includes(inputB)){
-            a = 0
+            a = -1
             while (a < commands.length && commands[a] != inputB){
                 a = a + 1
             }
