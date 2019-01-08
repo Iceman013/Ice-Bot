@@ -30,6 +30,7 @@ var commamdsA = ['test','info']
 var commandsB = ['list','help']
 var invited = 0
 var a = 0
+var b = 0
 var activate = 0
 var timecheck = 0
 var timecheckB = 0
@@ -108,16 +109,16 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 2){
                 outputB = '`' + commandsA[0] + '`'
-                a = 0
-                while (commandsA.length > a + 1){
-                    a = a + 1
-                    outputB = outputB + ' `' + commandsA[a] + '`'
+                b = 1
+                while (commandsA.length > b){
+                    outputB = outputB + ' `' + commandsA[b] + '`'
+                    b = b + 1
                 }
                 outputC = '`' + commandsB[0] + '`'
-                a = 0
-                while (commandsB.length > a + 1){
-                    a = a + 1
-                    outputC = outputC + ' `' + commandsB[a] + '`'
+                b = 1
+                while (commandsB.length > b){
+                    outputC = outputC + ' `' + commandsB[b] + '`'
+                    b = b + 1
                 }
                 if (!access.includes(userID)){
                     outputB = 'You must have higher clearance to view thia section.'
