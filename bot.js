@@ -35,6 +35,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
         member = bot.servers[serverID].members["520039060660682771"];
     }
     if (activate == 0){
+        bot.sendMessage({
+            to: '532011128633688076',
+            message: 'Ice Bot has been activated.'})
         bot.setPresence({
             game: {
                 type: 0,
