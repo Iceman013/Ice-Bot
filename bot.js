@@ -25,9 +25,22 @@ var inputB = ''
 var output = ''
 var commands = ['test']
 var a = 0
+var activate = 0
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
+    if (!bot.directMessages[channelID]) {
+        serverID = bot.channels[channelID].guild_id;
+        channel = bot.channels[channelID];
+        member = bot.servers[serverID].members["520039060660682771"];
+    }
+    if (activate == 0){
+        bot.setPresence({
+            game: {
+                type: 0,
+                name: 'in ' + Object.keys(bot.servers).length + ' servers'}})
+        activate = 1
+    }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length)
         inputB = input
