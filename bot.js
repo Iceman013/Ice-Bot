@@ -23,7 +23,7 @@ var start = '$'
 var input = ''
 var inputB = ''
 var output = ''
-var commands = ['test','ping']
+var commands = ['test','ping','monkeytoes999']
 var invited = 0
 var a = 0
 var activate = 0
@@ -74,6 +74,28 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         name: 'Ping',
                         value: pingcheck.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds elapsed'}]}})
     }
+    if (message == 'ct001n:monkeytoes' && userID == '520039060660682771'){
+        bot.sendMessage({
+            to: prevSentTo,
+            message: 'Monkeytoes999 helps develop this bot'
+        }, function (err, res){
+            setTimeout(() => {
+				bot.editMessage({
+                    channelID: prevSentTo,
+                    messageID: res.id,
+                    message: 'Check out this other bot that he works on!'
+                }, function (errr, ress){
+                    setTimeout(() => {
+                        bot.editMessage({
+                            channelID: prevSentTo,
+                            messageID: res.id,
+                            message: 'https://discordbots.org/bot/495705429150793739'
+                        });
+                    }, 3000)
+                });
+            }, 3000)
+        })
+    }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
         inputB = input
@@ -93,6 +115,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 1){
                 output = 'ct001n:ping'
                 timecheck = new Date()
+            }
+            if (a == 2){
+                output = 'ct001n:monkeytoes'
             }
         }
     }
