@@ -30,6 +30,7 @@ var activate = 0
 var timecheck = 0
 var timecheckB = 0
 var pingID = ''
+var channelIDB = ''
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
@@ -88,7 +89,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'Test is successful.'
             }
             if (a == 1){
-                output = 'ct001n:ping'
+                channelIDB = channelI
+                bot.sendMessage({
+                    to: '532160160941211658',
+                    message: 'ct001n:ping'})
                 timecheck = new Date()
             }
         }
