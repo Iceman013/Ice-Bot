@@ -27,6 +27,8 @@ var commands = ['test','ping']
 var invited = 0
 var a = 0
 var activate = 0
+var timecheck;
+
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
@@ -57,6 +59,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 name: 'in ' + invited + ' servers'}})
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
+        var pingcheck = new Date(0)
         bot.sendMessage({
             to: channelID,
             embed: {
@@ -65,7 +68,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 fields: [
                     {
                         name: 'Ping',
-                        value: new Date(0) - timecheck}]}})
+                        value: pingcheck.getMilliseconds() - timecheck.getMilliseconds()}]}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
