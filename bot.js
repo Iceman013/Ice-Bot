@@ -51,6 +51,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.sendMessage({
             to: '532011128633688076',
             message: 'Amount of servers has changed.'})
+        bot.setPresence({
+            game: {
+                type: 0,
+                name: 'in ' + invited + ' servers'}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length)
