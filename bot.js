@@ -63,7 +63,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
         timecheckB = new Date()
         bot.sendMessage({
-            to: channelID,
+            to: channelIDB,
             embed: {
                 title: 'Information Test',
                 color: 305071,
