@@ -29,10 +29,12 @@ var a = 0
 var activate = 0
 var timecheck
 var pingID
-var sentTo;
+var sentTo
+var prevSentTo
 
 bot.on('message', function (user, userID, channelID, message, evt){
     sentTo = channelID
+    prevSentTo = sentTo;
     output = ''
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
