@@ -163,7 +163,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 upper = ''
                 lower = ''
                 output = 'That is not a command or the syntax is incorrect.'
-                if ((commands.includes(input) || input == '') && ((commandsA.includes(input) == access.includes(userID)) || commandsB.includes(input))){
+                if ((commands.includes(input) || input == '') && (commandsB.includes(input) || access.includes(userID))){
                     b = -1
                     while (b < commands.length && commands[b] != input){
                         b = b + 1
@@ -188,7 +188,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'help {command}'
                         lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
                     }
-                    output = '```md\n' + start + upper + '\n'
+                    output = '```md\n' + start + upper + '\n='
                     b = 0
                     while (b < upper.length){
                         output = output + '='
