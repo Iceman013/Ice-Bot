@@ -160,17 +160,42 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         ]}})
             }
             if (a == 3){
-                if (input == ''){
-                    upper = 'help {command}'
-                    lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                upper = ''
+                lower = ''
+                output = 'That is not a command or the syntax is incorrect.'
+                if ((commands.includes(input) || input == '') && ((commandsA.includes(input) == access.includes(userID)) || commandsB.includes(input))){
+                    b = -1
+                    while (b < commands.length && commands[b] != input){
+                        b = b + 1
+                    }
+                    if (b == 0){
+                        upper = 'test'
+                        lower = 'This will test commands'
+                    }
+                    if (b == 1){
+                        upper = 'info'
+                        lower = 'This will tell you information about the bot'
+                    }
+                    if (b == 2){
+                        upper = 'list'
+                        lower = 'This will tell you all of the commands'
+                    }
+                    if (b == 3){
+                        upper = 'help {command}'
+                        lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                    }
+                    if (input == ''){
+                        upper = 'help {command}'
+                        lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                    }
+                    output = '```md\n' + start + upper + '\n'
+                    b = 0
+                    while (b < upper.length){
+                        output = output + '='
+                        b = b + 1
+                    }
+                    output = output + '\n' + lower + '\n```'
                 }
-                output = '```md\n' + upper + '\n'
-                b = 0
-                while (b < upper.length){
-                    output = output + '='
-                    b = b + 1
-                }
-                output = output + '\n' + lower + '\n```'
             }
         }
     }
