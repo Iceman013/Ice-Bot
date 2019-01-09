@@ -43,6 +43,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
     outputB = ''
     outputC = ''
+    if (message.toLowerCase().includes('ice bot') || message.toLowerCase().includes('<@520039060660682771>') && userID != '520039060660682771'){
+        output = 'I am Ice Bot. I can help you with uh . . . Well, I have this great thing where I can . . . Oh'
+    }
     if (!bot.directMessages[channelID]) {
         serverID = bot.channels[channelID].guild_id;
         channel = bot.channels[channelID];
