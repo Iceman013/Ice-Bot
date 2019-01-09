@@ -182,11 +182,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     }
                     if (b == 3){
                         upper = 'help {command}'
-                        lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                        lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
                     }
                     if (input == ''){
                         upper = 'help {command}'
-                        lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                        lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
                     }
                     output = '```md\n' + start + upper + '\n='
                     b = 0
