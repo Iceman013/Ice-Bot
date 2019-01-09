@@ -137,9 +137,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 name: 'Everyone',
                                 value: outputC
                             }
-                        ]}}, function(err, res){
-                    console.log(err + '\n' + res)
-                })
+                        ]}})
             }
             if (a == 3){
                 output = 'This command is coming soon. Please wait.'
