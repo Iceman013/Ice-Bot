@@ -31,6 +31,7 @@ var commandsB = ['list','help']
 var invited = 0
 var a = 0
 var b = 0
+var c = 0
 var activate = 0
 var timecheck = 0
 var timecheckB = 0
@@ -70,11 +71,17 @@ bot.on('message', function (user, userID, channelID, message, evt){
     }
     if (message == 'ct001n:ping' && userID == '520039060660682771'){
         timecheckB = new Date()
+        b = timecheckB.getMilliseconds() - timecheck.getMilliseconds()
+        c = b
+        if (b > 16**2){
+            b = 16**2
+        }
+        b = ((16**2) - b) + (16**4)*b)
         bot.sendMessage({
             to: channelIDB,
             embed: {
                 title: 'Information Test',
-                color: 305071,
+                color: b,
                 fields: [
                     {
                         name: 'Constants',
@@ -82,7 +89,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     },
                     {
                         name: 'Ping',
-                        value: timecheckB.getMilliseconds() - timecheck.getMilliseconds() + ' milliseconds'}]}})
+                        value: c + ' milliseconds'}]}})
     }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
