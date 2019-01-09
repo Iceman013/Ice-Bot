@@ -37,6 +37,8 @@ var timecheck = 0
 var timecheckB = 0
 var pingID = ''
 var channelIDB = ''
+var upper = ''
+var lower = ''
 var access = ['486985623161274378','393586279964475393']
 
 bot.on('message', function (user, userID, channelID, message, evt){
@@ -99,8 +101,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length).toLowerCase()
         inputB = input
-        while (input.includes(' ')){
+        while (inputB.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
+        }
+        if (input.length > inputB.length){
+            input = input.substring(inputB.length + 1, input.length)
+        }
+        if (input == inputB){
+            input = ''
         }
         if (commands.includes(inputB) && (commandsB.includes(inputB) || access.includes(userID))){
             a = 0
@@ -152,7 +160,17 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         ]}})
             }
             if (a == 3){
-                output = 'This command is coming soon. Please wait.'
+                if (input == ''){
+                    upper = 'help {command}'
+                    lower = '< command >/nInsert any command here to receive instructions on syntax as well as purpose'
+                }
+                output = '```md\n' + upper + '\n'
+                b = 0
+                while (b < upper.length){
+                    output = output + '='
+                    b = b + 1
+                }
+                output = output + '\n' + lower + '\n```'
             }
         }
     }
