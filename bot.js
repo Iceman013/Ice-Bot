@@ -77,7 +77,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             b = 16**2
         }
         console.log(b)
-        b = (16**2) - b) + (16**4)*b
+        b = (16**2) - b + (16**4)*b
         console.log(b)
         bot.sendMessage({
             to: channelIDB,
