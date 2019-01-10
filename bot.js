@@ -81,14 +81,19 @@ bot.on('message', function (user, userID, channelID, message, evt){
         if (b > 16**2){
             b = 16**2
         }
-        console.log(b)
         b = (16**2) - b + (16**4)*b
-        console.log(b)
         bot.sendMessage({
             to: channelIDB,
             embed: {
+                author: {
+                    name: 'Ice Bot Information',
+                    icon_url: 'https://cdn.discordapp.com/avatars/520039060660682771/' + bot.users['520039060660682771'].avatar + '.png?size=32'},
                 title: 'Information Test',
                 color: b,
+                timestamp: timecheckB,
+                footer: {
+                    icon_url: 'https://cdn.discordapp.com/embed/avatars/0.png',
+                    text: 'Information Posted:',
                 fields: [
                     {
                         name: 'Constants',
