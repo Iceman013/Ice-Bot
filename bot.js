@@ -32,6 +32,7 @@ var invited = 0
 var a = 0
 var b = 0
 var c = 0
+var d = 0
 var activate = 0
 var timecheck = 0
 var timecheckB = 0
@@ -198,6 +199,18 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
                     }
+                    if (b == 4){
+                        upper = 'suggest {suggestion}'
+                        lower = '< suggestion >\nInsert a suggestion that will be sent to the creators'
+                    }
+                    if (b == 5){
+                        upper = 'report {issue}'
+                        lower = '< issue >\nInsert an issue in the process'
+                    }
+                    if (b == 6){
+                        upper = 'feedback {comment}'
+                        lower = '< comment >\nThis is where your feedback goes so it can be sent'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -224,6 +237,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     b = 'Feedback'
                     d = '532890805371797504'
                 }
+                output = 'Your message was successfully sent. Thank you for your ontribution.'
                 c = new Date()
                 bot.sendMessage({
                     to: d,
