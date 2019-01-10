@@ -93,7 +93,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 timestamp: timecheckB,
                 footer: {
                     icon_url: 'https://cdn.discordapp.com/embed/avatars/0.png',
-                    text: 'Information Posted:',
+                    text: 'Information Posted:'},
                 fields: [
                     {
                         name: 'Constants',
