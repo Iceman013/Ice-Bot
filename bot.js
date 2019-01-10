@@ -92,7 +92,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 color: b,
                 timestamp: timecheckB,
                 footer: {
-                    icon_url: 'https://cdn.discordapp.com/embed/avatars/0.png',
+                    icon_url: 'https://cdn.discordapp.com/attachments/532010793416392704/532739274806657044/unknown_4.png',
                     text: 'Information Posted:'},
                 fields: [
                     {
