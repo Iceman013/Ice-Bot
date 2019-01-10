@@ -25,9 +25,9 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help']
+var commands = ['test','info','list','help','suggest','report','feedback']
 var commandsA = ['test','info']
-var commandsB = ['list','help']
+var commandsB = ['list','help','suggest','report','feedback']
 var invited = 0
 var a = 0
 var b = 0
@@ -210,6 +210,26 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     }
                     output = output + '\n' + lower + '\n```'
                 }
+            }
+            if (a == 4){
+                c = new Date()
+                bot.sendMessage({
+                    to: '532890871570497552',
+                    embed: {
+                        author: {
+                            name: bot.users[userID].nickname,
+                            icon_url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png?size=32'},
+                        title: 'Suggestion',
+                        color: 305071,
+                        timestamp: c,
+                        footer: {
+                            text: 'Suggested on'
+                        },
+                        fields: [
+                            {
+                                name: 'React Below to Vote',
+                                value: message.substring(start.length + inputB.length + 1, message.length)
+                            }]}})
             }
         }
     }
