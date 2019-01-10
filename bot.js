@@ -39,6 +39,8 @@ var pingID = ''
 var channelIDB = ''
 var upper = ''
 var lower = ''
+var keywords = ['iceman','icecy','icerice','iceshark']
+var responses = ['<@486985623161274378>, you were mentioned in this message.','<@!336507246227881984>, you were mentioned in this message.','<@458809225120972800>, you were mentioned in this message.',,'<@393586279964475393>, you were mentioned in this message.']
 var access = ['486985623161274378','393586279964475393']
 
 bot.on('message', function (user, userID, channelID, message, evt){
@@ -63,6 +65,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 type: 0,
                 name: 'in ' + invited + ' servers'}})
         activate = 1
+    }
+    b = -1
+    while (b < keywords.length){
+        b = b + 1
+        if (message.toLowerCase().includes(keywords[b]){
+            output = responses[b]
+        }
     }
     if (Object.keys(bot.servers).length != invited){
         invited = Object.keys(bot.servers).length
