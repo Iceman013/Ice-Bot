@@ -233,7 +233,23 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     bot.addReaction({
                         channelID: '532890871570497552',
                         messageID: res.id,
-                        reaction: '👍'})})
+                        reaction: '👍'}, function(err, res){
+                        b = 0
+                        while (b < 10000){
+                            b = b + 0.001
+                        }
+                        bot.addReaction({
+                            channelID: '532890871570497552',
+                            messageID: res.id,
+                            reaction: '🔁'}, function(err, res){
+                            b = 0
+                            while (b < 10000){
+                                b = b + 0.001
+                            }
+                            bot.addReaction({
+                                channelID: '532890871570497552',
+                                messageID: res.id,
+                                reaction: '👎'})})})})
             }
         }
     }
