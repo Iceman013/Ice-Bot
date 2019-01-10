@@ -229,7 +229,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
                             {
                                 name: 'React Below to Vote',
                                 value: message.substring(start.length + inputB.length + 1, message.length)
-                            }]}})
+                            }]}}, function(err, res){
+                    bot.addReaction({
+                        channelID: '532890871570497552',
+                        messageID: res.id,
+                        reaction: '👍'})})
             }
         }
     }
