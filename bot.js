@@ -211,19 +211,31 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     output = output + '\n' + lower + '\n```'
                 }
             }
-            if (a == 4){
+            if (a == 4 || a == 5 || a == 6){
+                if (a == 4){
+                    b = 'Suggestion'
+                    d = '532890871570497552'
+                }
+                if (a == 5){
+                    b = 'Issue'
+                    d = '532890982652575754'
+                }
+                if (a == 6){
+                    b = 'Feedback'
+                    d = '532890805371797504'
+                }
                 c = new Date()
                 bot.sendMessage({
-                    to: '532890871570497552',
+                    to: d,
                     embed: {
                         author: {
                             name: bot.users[userID].username,
                             icon_url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png?size=32'},
-                        title: 'Suggestion',
+                        title: b,
                         color: 305071,
                         timestamp: c,
                         footer: {
-                            text: 'Suggested on'
+                            text: 'Created on'
                         },
                         fields: [
                             {
@@ -231,7 +243,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 value: message.substring(start.length + inputB.length + 1, message.length)
                             }]}}, function(err, res){
                     bot.addReaction({
-                        channelID: '532890871570497552',
+                        channelID: d,
                         messageID: res.id,
                         reaction: '👍'}, function(err, res){
                         b = 0
@@ -239,7 +251,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                             b = b + 0.001
                         }
                         bot.addReaction({
-                            channelID: '532890871570497552',
+                            channelID: d,
                             messageID: res.id,
                             reaction: '🔁'}, function(err, res){
                             b = 0
@@ -247,7 +259,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 b = b + 0.001
                             }
                             bot.addReaction({
-                                channelID: '532890871570497552',
+                                channelID: d,
                                 messageID: res.id,
                                 reaction: '👎'})})})})
             }
