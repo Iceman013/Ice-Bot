@@ -217,7 +217,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     to: '532890871570497552',
                     embed: {
                         author: {
-                            name: bot.users[userID].nickname,
+                            name: bot.users[userID].username,
                             icon_url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png?size=32'},
                         title: 'Suggestion',
                         color: 305071,
