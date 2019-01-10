@@ -256,9 +256,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 name: 'React Below to Vote',
                                 value: message.substring(start.length + inputB.length + 1, message.length)
                             }]}}, function(err, res){
+                    c = res.id
                     bot.addReaction({
                         channelID: d,
-                        messageID: res.id,
+                        messageID: c,
                         reaction: '👍'}, function(err, res){
                         b = 0
                         while (b < 10000){
@@ -266,7 +267,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         }
                         bot.addReaction({
                             channelID: d,
-                            messageID: res.id,
+                            messageID: c,
                             reaction: '🔁'}, function(err, res){
                             b = 0
                             while (b < 10000){
@@ -274,7 +275,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                             }
                             bot.addReaction({
                                 channelID: d,
-                                messageID: res.id,
+                                messageID: c,
                                 reaction: '👎'})})})})
             }
         }
