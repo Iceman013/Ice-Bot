@@ -237,7 +237,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     b = 'Feedback'
                     d = '532890805371797504'
                 }
-                output = 'Your message was successfully sent. Thank you for your ontribution.'
+                output = 'Your message was successfully sent. Thank you for your contribution.'
                 c = new Date()
                 bot.sendMessage({
                     to: d,
