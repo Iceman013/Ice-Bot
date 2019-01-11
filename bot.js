@@ -308,7 +308,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                             bot.addReation({
                                                 channelID: d,
                                                 messageID: c,
-                                                reaction: '⚠️'})})})})})})
+                                                reaction: '⚠️'})})})})})})})})
             }
         }
     }
