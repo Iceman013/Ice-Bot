@@ -43,6 +43,7 @@ var lower = ''
 var keywords = ['iceman','icecy','icerice','iceshark']
 var responses = ['<@486985623161274378>, you were mentioned in this message.','<@!336507246227881984>, you were mentioned in this message.','<@458809225120972800>, you were mentioned in this message.','<@393586279964475393>, you were mentioned in this message.']
 var access = ['486985623161274378','393586279964475393']
+var silence = ['532890805371797504','532890871570497552','532890982652575754']
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
@@ -67,7 +68,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 name: 'in ' + invited + ' servers'}})
         activate = 1
     }
-    if (channelID == '533264284348579870' && userID == '486985623161274378'){
+    if (silence.includes(channelID) && userID != '520039060660682771'){
         bot.deleteMessage({
             channelID: channelID,
             messageID: evt.d.id})
