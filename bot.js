@@ -305,7 +305,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                             while (b < 10000){
                                                 b = b + 0.001
                                             }
-                                            bot.addReation({
+                                            bot.addReaction({
                                                 channelID: d,
                                                 messageID: c,
                                                 reaction: '⚠️'})})})})})})})})
