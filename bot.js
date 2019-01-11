@@ -67,6 +67,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 name: 'in ' + invited + ' servers'}})
         activate = 1
     }
+    if (channelID == '533264284348579870' && userID == '486985623161274378'){
+        bot.deleteMessage({
+            channelID: channelID,
+            messageID: message.id})
+    }
     b = -1
     while (b < keywords.length){
         b = b + 1
