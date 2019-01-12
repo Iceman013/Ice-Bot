@@ -1,4 +1,3 @@
-console.log('Line 1')
 var Discord = require('discord.io');
 var logger = require('winston');
 
@@ -18,8 +17,6 @@ bot.on('ready',function(evt){
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
-
-console.log('Line 22')
 
 var start = '$'
 var input = ''
@@ -46,8 +43,6 @@ var keywords = ['iceman','icecy','icerice','iceshark']
 var responses = ['<@486985623161274378>, you were mentioned in this message.','<@!336507246227881984>, you were mentioned in this message.','<@458809225120972800>, you were mentioned in this message.','<@393586279964475393>, you were mentioned in this message.']
 var access = ['486985623161274378','393586279964475393']
 var silence = ['532890805371797504','532890871570497552','532890982652575754','532391405826605066','532011128633688076']
-
-console.log('Line 50')
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
