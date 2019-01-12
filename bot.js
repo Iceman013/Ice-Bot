@@ -25,9 +25,9 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback']
+var commands = ['test','info','list','help','suggest','report','feedback','invite','link']
 var commandsA = ['test','info']
-var commandsB = ['list','help','suggest','report','feedback']
+var commandsB = ['list','help','suggest','report','feedback','invite','link']
 var invited = 0
 var a = 0
 var b = 0
@@ -315,6 +315,12 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                                 channelID: d,
                                                 messageID: c,
                                                 reaction: '🚩'})})})})})})})})
+            }
+            if (a == 7){
+                ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
+            }
+            if (a == 8){
+                output = 'https://discord.gg/SbrNgrq'
             }
         }
     }
