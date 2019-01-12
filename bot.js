@@ -217,6 +217,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'feedback {comment}'
                         lower = '< comment >\nThis is where your feedback goes so it can be sent'
                     }
+                    if (b == 7){
+                        upper = 'invite'
+                        lower = 'The link to invite this bot to other servers will be sent'
+                    }
+                    if (b == 8){
+                        upper = 'link'
+                        lower = 'The link to the help server will be sent'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
