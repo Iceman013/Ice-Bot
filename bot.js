@@ -328,7 +328,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'https://discord.gg/SbrNgrq'
             }
             if (a == 8){
-                ouput = 'Help me!'
+                ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
             }
         }
     }
