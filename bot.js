@@ -25,8 +25,8 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite']
-var commandsA = ['test','info']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop']
+var commandsA = ['test','info','stop']
 var commandsB = ['list','help','suggest','report','feedback','link','invite']
 var invited = 0
 var a = 0
@@ -225,6 +225,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'invite'
                         lower = 'The link to invite this bot to other servers will be sent'
                     }
+                    if (b == 9){
+                        upper = 'stop'
+                        lower = 'This will turn off the bot'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -329,6 +333,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 8){
                 output = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
+            }
+            if (a == 9){
+                output = 'Ice Bot is no longer running'
+                bot.sendMessage({
+                    to: '532011128633688076',
+                    message: 'Ice Bot has been deactivated.'})
+                bot.disconnect()
             }
         }
     }
