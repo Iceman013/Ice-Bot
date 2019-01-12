@@ -329,6 +329,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 8){
                 ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
+                
             }
         }
     }
@@ -336,6 +337,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.sendMessage({
             to: channelID,
             message: output
+        }, function(err, res){
+            if (err) throw err;
         })
     }
 })
