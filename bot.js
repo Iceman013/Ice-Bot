@@ -25,9 +25,9 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','invite','link']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite']
 var commandsA = ['test','info']
-var commandsB = ['list','help','suggest','report','feedback','invite','link']
+var commandsB = ['list','help','suggest','report','feedback','link','invite']
 var invited = 0
 var a = 0
 var b = 0
@@ -218,12 +218,12 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         lower = '< comment >\nThis is where your feedback goes so it can be sent'
                     }
                     if (b == 7){
-                        upper = 'invite'
-                        lower = 'The link to invite this bot to other servers will be sent'
-                    }
-                    if (b == 8){
                         upper = 'link'
                         lower = 'The link to the help server will be sent'
+                    }
+                    if (b == 8){
+                        upper = 'invite'
+                        lower = 'The link to invite this bot to other servers will be sent'
                     }
                     if (input == ''){
                         upper = 'help {command}'
@@ -325,10 +325,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                                 reaction: '🚩'})})})})})})})})
             }
             if (a == 7){
-                ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
+                output = 'https://discord.gg/SbrNgrq'
             }
             if (a == 8){
-                output = 'https://discord.gg/SbrNgrq'
+                ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
             }
         }
     }
