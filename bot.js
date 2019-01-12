@@ -137,7 +137,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 while (a < commands.length && commands[a] != inputB){
                     a = a + 1
                 }
-                console.log(a)
             }
             if (a == 0){
                 output = 'Test is successful.'
@@ -328,13 +327,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 7){
                 output = 'https://discord.gg/SbrNgrq'
             }
-            console.log('is this work this far')
             if (a == 8){
                 ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
                 
             }
         }
     }
+    console.log(output)
     if (output != ''){
         bot.sendMessage({
             to: channelID,
