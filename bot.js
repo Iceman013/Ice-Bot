@@ -137,6 +137,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 while (a < commands.length && commands[a] != inputB){
                     a = a + 1
                 }
+                console.log(a)
             }
             if (a == 0){
                 output = 'Test is successful.'
