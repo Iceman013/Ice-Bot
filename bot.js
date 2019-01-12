@@ -328,8 +328,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'https://discord.gg/SbrNgrq'
             }
             if (a == 8){
+                console.log('this far')
                 ouput = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
-                
             }
         }
     }
@@ -338,10 +338,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
         bot.sendMessage({
             to: channelID,
             message: output
-        }, function(err, res){
-            if (err) throw err;
-            console.log(err)
-            console.log(res)
         })
     }
 })
