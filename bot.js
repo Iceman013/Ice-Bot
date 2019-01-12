@@ -25,8 +25,8 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop']
-var commandsA = ['test','info','stop']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep']
+var commandsA = ['test','info','stop','rep']
 var commandsB = ['list','help','suggest','report','feedback','link','invite']
 var invited = 0
 var a = 0
@@ -43,7 +43,7 @@ var lower = ''
 var keywords = ['iceman','icecy','icerice','iceshark']
 var responses = ['<@486985623161274378>, you were mentioned in this message.','<@!336507246227881984>, you were mentioned in this message.','<@458809225120972800>, you were mentioned in this message.','<@393586279964475393>, you were mentioned in this message.']
 var access = ['486985623161274378','393586279964475393']
-var silence = ['532890805371797504','532890871570497552','532890982652575754']
+var silence = ['532890805371797504','532890871570497552','532890982652575754','532391405826605066','532011128633688076']
 
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
@@ -229,6 +229,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'stop'
                         lower = 'This will turn off the bot'
                     }
+                    if (b == 10){
+                        upper = 'rep {message}'
+                        lower = '< message >\nThis will repeat the commanded message'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -340,6 +344,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     to: '532011128633688076',
                     message: 'Ice Bot has been deactivated.'})
                 bot.disconnect()
+            }
+            if (a == 10){
+                output = input
             }
         }
     }
