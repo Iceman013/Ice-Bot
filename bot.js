@@ -339,6 +339,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
             message: output
         }, function(err, res){
             if (err) throw err;
+            console.log(err)
+            console.log(res)
         })
     }
 })
