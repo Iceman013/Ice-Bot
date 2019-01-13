@@ -24,10 +24,11 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news']
-var commandsA = ['test','info','stop','rep','update']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert']
+var commandsA = ['test','info','stop','rep','update','alert']
 var commandsB = ['list','help','suggest','report','feedback','link','invite','joke','wyr','news']
 var current = ''
+var currentB
 var invited = 0
 var a = 0
 var b = 0
@@ -251,6 +252,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'news'
                         lower = 'This will tell you the current news'
                     }
+                    if (b == 15){
+                        upper = 'alert {message}'
+                        lower = '< message >\nThis will update the private news'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -374,10 +379,17 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 13){
                 current = input
-                output = 'Aunnoncement has been received. Check `' + start + 'news` to see it.'
+                output = 'Annoncement has been received. Check `' + start + 'news` to see it.'
             }
             if (a == 14){
                 output = '**The current news is below:**\n' + current
+                if (access.includes(userID)){
+                    output = output + '\n**The private news is below:**\n' + currentB
+                }
+            }
+            if (a == 15){
+                currentB = input
+                output = 'Private annoncement has been received. Check `' + start + 'news` to see it.'
             }
         }
     }
