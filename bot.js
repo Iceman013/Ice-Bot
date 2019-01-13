@@ -28,7 +28,7 @@ var commands = ['test','info','list','help','suggest','report','feedback','link'
 var commandsA = ['test','info','stop','rep','update','alert']
 var commandsB = ['list','help','suggest','report','feedback','link','invite','joke','wyr','news']
 var current = ''
-var currentB
+var currentB = ''
 var invited = 0
 var a = 0
 var b = 0
