@@ -51,7 +51,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
     outputB = ''
     outputC = ''
-    current = ''
     if ((message.toLowerCase().includes('ice bot') || message.toLowerCase().includes('<@520039060660682771>')) && userID != '520039060660682771'){
         output = 'I am Ice Bot. I can help you with uh . . . Well, I have this great thing where I can um . . . Oh! I do this thing with the uhhhhh ummm . . . Well, I have a cool picture. Try `' + start + 'help` for help and `' + start + 'list` for a list of commands.'
     }
@@ -371,7 +370,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = jokes[Math.floor(Math.random()*(jokes.length-1))]
             }
             if (a == 12){
-                output = wyr[Math.floor(Math.random()*(wyr.length-1))]
+                output = 'Would you rather ' + wyr[Math.floor(Math.random()*(wyr.length-1))] + '?'
             }
             if (a == 13){
                 current = input
