@@ -186,11 +186,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 value: outputB,
                             },
                             {
-                                name: 'Useful',
+                                name: ':paperclips: Useful :paperclips:',
                                 value: outputC,
                             },
                             {
-                                name: 'Fun',
+                                name: ':tada: Fun :tada:',
                                 value: outputD
                             }
                         ]}})
