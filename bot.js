@@ -26,7 +26,9 @@ var outputB = ''
 var outputC = ''
 var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert']
 var commandsA = ['test','info','stop','rep','update','alert']
-var commandsB = ['list','help','suggest','report','feedback','link','invite','joke','wyr','news']
+var commandsC = ['list','help','suggest','report','feedback','link','invite']
+var commandsD = ['joke','wyr','news']
+var commandsB = commandsC + commandsD
 var current = ''
 var currentB = ''
 var invited = 0
@@ -158,10 +160,16 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     outputB = outputB + ' `' + commandsA[b] + '`'
                     b = b + 1
                 }
-                outputC = '`' + commandsB[0] + '`'
+                outputC = '`' + commandsC[0] + '`'
                 b = 1
-                while (commandsB.length > b){
-                    outputC = outputC + ' `' + commandsB[b] + '`'
+                while (commandsC.length > b){
+                    outputC = outputC + ' `' + commandsC[b] + '`'
+                    b = b + 1
+                }
+                outputD = '`' + commandsD[0] + '`'
+                b = 1
+                while (commandsD.length > b){
+                    outputD = outputD + ' `' + commandsD[b] + '`'
                     b = b + 1
                 }
                 if (access.includes(userID) == false){
@@ -174,12 +182,16 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         color: 305071,
                         fields: [
                             {
-                                name: 'Creator Only',
+                                name: ':bust_in_silhouette: Creator Only :bust_in_silhouette:',
                                 value: outputB,
                             },
                             {
-                                name: 'Everyone',
-                                value: outputC
+                                name: 'Useful',
+                                value: outputC,
+                            },
+                            {
+                                name: 'Fun',
+                                value: outputD
                             }
                         ]}})
             }
