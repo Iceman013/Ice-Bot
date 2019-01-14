@@ -82,11 +82,11 @@ bot.on('message', function (user, userID, channelID, message, evt){
     b = -1
     while (b < badWords.length){
         b = b + 1
-        if (message.toLowerCase().includes(badWords[b])){
+        if (message.toLowerCase().includes(' ' + badWords[b]) || message.toLowerCase().includes(badWords[b] + ' ') || message.toLowerCase() == badWords[b]){
             bot.deleteMessage({
                 channelID: channelID,
                 messageID: evt.d.id})
-            output = 'You monster with a dirty mind. **Never ever say those dirty dirty words!**'
+            output = 'You monster with a dirty mind. **Never ever say those dirty dirty words!** Please refrain from that and only use unicycles.'
         }
     }
     b = -1
