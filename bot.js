@@ -51,6 +51,19 @@ var jokes = ["My wife and I were happy for 20 years. Then, we met.","My goal is 
 var wyr = ["know when you were going to die, or when all the people around you are going to die","be able to read minds, or send messages by thinking","be good looking but unaware of it, or be ugly and think you are good looking","make friends easily but like none of them, or like most people that won't become friends with you","have really good jokes but not understand humor, or think all jokes are hillarious but rarely here any","hear the same voice no matter who speaks, or speak random voices every time you talk","understand every language but not speak it, or speak every language but not understand it","constantly move homes to new locations, or never travel on vaction","see the future from all viewpoints and be blind, or see like you do now","understand animals, or be able to speak to animals","transform into any animal except a human at will, or only be a human","have all drink containers with holes in the bottom, or have no tap water and only bottled water","have your hands stick to any surface, or be insanely slippery"]
 var badWords = ['bike','bicycle','biker','bicyclist','bikes','bicycles','bikers','bicyclists','biking']
 
+bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
+    c = newMsgData.content.toLowerCase()
+    b = -1
+    while (b < badWords.length){
+        b = b + 1
+        if (c.includes(' ' + badWords[b]) || c.includes(badWords[b] + ' ') || c == badWords[b]){
+            bot.deleteMessage({
+                channelID: newMsgData.channel_id,
+                messageID: newMsgData.id
+            })
+        }
+    }
+})
 bot.on('message', function (user, userID, channelID, message, evt){
     output = ''
     outputB = ''
