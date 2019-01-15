@@ -53,7 +53,8 @@ var badWords = ['bike','bicycle','biker','bicyclist','bikes','bicycles','bikers'
 var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
-var eightBall = [eightBallA + eightBallB + eightBallC]
+var eightBall = []
+eightBall = eightBallA
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     c = ''
