@@ -25,10 +25,10 @@ var inputC = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship']
 var commandsA = ['test','info','stop','rep','update','alert']
 var commandsC = ['list','help','suggest','report','feedback','link','invite','news']
-var commandsD = ['joke','wyr','8ball']
+var commandsD = ['joke','wyr','8ball','ship']
 var commandsB = []
 commandsB = commandsC + commandsD
 var current = ''
@@ -324,6 +324,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = '8ball {message}'
                         lower = '< message >\nThis will give a random answer to your question'
                     }
+                    if (b == 17){
+                        upper = 'ship {@user1} {@user2}'
+                        lower = '< user1 >\nThis is the first lover\n< user2 >\nThis is the second lover'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -480,6 +484,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 name: inputC,
                                 value: b + '.'}]}})
             }
+            if (a == 17){
+                if (evt.d.mentions[1].id != undefined){
+                    b = evt.d.mentions[0].username
+                    c = evt.d.mentions[1].username
+                    output = '**' + b + ' :revolving_hearts: ' + c + '** = ' + b.substring(0, Math.floor(b.length)) + c.substring(Math.floor(c.length), c.length)
+                }
+                    
         }
     }
     if (output != ''){
