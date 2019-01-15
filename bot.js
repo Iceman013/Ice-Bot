@@ -462,7 +462,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         fields: [
                             {
                                 name: input,
-                                value: eightBall[b] + '.'}]}})
+                                value: b + '.'}]}})
             }
         }
     }
