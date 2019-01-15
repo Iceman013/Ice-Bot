@@ -302,6 +302,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'alert {message}'
                         lower = '< message >\nThis will update the private news'
                     }
+                    if (b == 16){
+                        upper = '8ball {message}'
+                        lower = '< message >\nThis will give a random answer to your question'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
@@ -439,6 +443,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (a == 16){
                 b = eightBall[Math.floor(eightBall.length*Math.random())]
+                console.log(b)
                 if (eightBallA.includes(b)){
                     c = 16**4 - 1
                 }
@@ -448,6 +453,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 if (eightBallC.includes(b)){
                     c = 16**2 - 1
                 }
+                console.log(c)
                 bot.sendMessage({
                     to: channelID,
                     embed: {
