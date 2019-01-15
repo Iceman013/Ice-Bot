@@ -130,7 +130,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     b = -1
     while (b < keywords.length){
         b = b + 1
-        if (message.toLowerCase().includes(keywords[b])){
+        if (message.toLowerCase().includes(keywords[b]) && bot.users[userID].bot != true){
             output = responses[b]
         }
     }
