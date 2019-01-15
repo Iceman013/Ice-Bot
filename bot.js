@@ -28,7 +28,8 @@ var commands = ['test','info','list','help','suggest','report','feedback','link'
 var commandsA = ['test','info','stop','rep','update','alert']
 var commandsC = ['list','help','suggest','report','feedback','link','invite','news']
 var commandsD = ['joke','wyr','8ball']
-var commandsB = commandsC + commandsD
+var commandsB = []
+commandsB = commandsC + commandsD
 var current = ''
 var currentB = ''
 var invited = 0
@@ -54,7 +55,7 @@ var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Prob
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
 var eightBall = []
-eightBall = eightBallA
+eightBall = eightBallA + eightBallB + eightBallC
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     c = ''
