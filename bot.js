@@ -21,6 +21,7 @@ bot.on('ready',function(evt){
 var start = '$'
 var input = ''
 var inputB = ''
+var inputC = ''
 var output = ''
 var outputB = ''
 var outputC = ''
@@ -173,7 +174,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         value: c + ' milliseconds'}]}})
     }
     if (message.substring(0, start.length) == start){
-        input = message.substring(start.length, message.length).toLowerCase()
+        input = message.substring(start.length, message.length)
         inputB = input
         while (inputB.includes(' ')){
             inputB = inputB.substring(0, inputB.length - 1)
@@ -184,6 +185,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
         if (input == inputB){
             input = ''
         }
+        inputC = input
+        input = input.toLowerCase()
+        inputB = inputB.toLowerCase()
         if (commands.includes(inputB) && (commandsB.includes(inputB) || access.includes(userID))){
             a = 0
             if (commands[a] != inputB){
@@ -433,7 +437,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 bot.disconnect()
             }
             if (a == 10){
-                output = input
+                output = inputC
             }
             if (a == 11){
                 output = jokes[Math.floor(Math.random()*(jokes.length-1))]
@@ -473,7 +477,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         color: c,
                         fields: [
                             {
-                                name: input,
+                                name: inputC,
                                 value: b + '.'}]}})
             }
         }
