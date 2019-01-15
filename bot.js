@@ -488,7 +488,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 if (evt.d.mentions[1].id != undefined){
                     b = evt.d.mentions[0].username
                     c = evt.d.mentions[1].username
-                    output = '**' + b + ' :revolving_hearts: ' + c + '** = ' + b.substring(0, Math.floor(b.length)) + c.substring(Math.floor(c.length), c.length)
+                    output = ':hearts:**' + b + ' :revolving_hearts: ' + c + ' = ' + b.substring(0, Math.floor(b.length)) + c.substring(Math.floor(c.length), c.length) + '**:hearts:'
                 }
             }
                     
