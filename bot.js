@@ -146,6 +146,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 title: 'Amount of servers has changed from ' + invited + ' to ' + Object.keys(bot.servers).length + '.',
                 color: 305071,
                 timestamp: b}})
+        invited = Object.keys(bot.servers).length
         bot.setPresence({
             game: {
                 type: 0,
