@@ -55,7 +55,19 @@ var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Prob
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
 var eightBall = []
-eightBall = eightBallA + eightBallB + eightBallC
+b = -1
+while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
+    b = b + 1
+    if (eightBallA[b] != undefined){
+        eightBall[eightBall.length] = eightBallA[b]
+    }
+    if (eightBallB[b] != undefined){
+        eightBall[eightBall.length] = eightBallB[b]
+    }
+    if (eightBallC[b] != undefined){
+        eightBall[eightBall.length] = eightBallC[b]
+    }
+}
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     c = ''
@@ -444,10 +456,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'Private annoncement has been received. Check `' + start + 'news` to see it.'
             }
             if (a == 16){
-                b = Math.floor((eightBall.length - 1)*Math.random())
-                console.log(b)
-                b = eightBall[b]
-                console.log(b)
+                b = eightBall[Math.floor((eightBall.length - 1)*Math.random())]
                 if (eightBallA.includes(b)){
                     c = 16**4 - 1
                 }
@@ -457,7 +466,6 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 if (eightBallC.includes(b)){
                     c = 16**2 - 1
                 }
-                console.log(c)
                 bot.sendMessage({
                     to: channelID,
                     embed: {
