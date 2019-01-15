@@ -102,10 +102,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
         member = bot.servers[serverID].members['520039060660682771'];
     }
     if (activate == 0){
+        b = new Date()
         invited = Object.keys(bot.servers).length
         bot.sendMessage({
             to: '532011128633688076',
-            message: 'Ice Bot has been activated.'})
+            embed: {
+                title: 'Ice Bot has been activated.',
+                color: 305071,
+                timestamp: b}})
         bot.setPresence({
             game: {
                 type: 0,
@@ -135,10 +139,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
         }
     }
     if (Object.keys(bot.servers).length != invited){
-        invited = Object.keys(bot.servers).length
+        b = new Date()
         bot.sendMessage({
             to: '532011128633688076',
-            message: 'Amount of servers has changed.'})
+            embed: {
+                title: 'Amount of servers has changed from ' + invited + ' to ' + Object.keys(bot.servers).length + '.',
+                color: 305071,
+                timestamp: b}})
         bot.setPresence({
             game: {
                 type: 0,
@@ -434,10 +441,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'https://discordapp.com/oauth2/authorize?&client_id=520039060660682771&scope=bot&permissions=8'
             }
             if (a == 9){
-                output = 'Ice Bot is no longer running'
+                output = 'Ice Bot is no longer running.'
+                b = new Date()
                 bot.sendMessage({
                     to: '532011128633688076',
-                    message: 'Ice Bot has been deactivated.'})
+                    embed: {
+                        title: 'Ice Bot has been deactivated.',
+                        color: 305071,
+                        timestamp: b}})
                 bot.disconnect()
             }
             if (a == 10){
