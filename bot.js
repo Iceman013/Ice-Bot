@@ -458,13 +458,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 16){
                 b = eightBall[Math.floor((eightBall.length - 1)*Math.random())]
                 if (eightBallA.includes(b)){
-                    c = 16**4 - 1
+                    c = 255
                 }
                 if (eightBallB.includes(b)){
-                    c = 16**6 - 1
+                    c = 16711680
                 }
                 if (eightBallC.includes(b)){
-                    c = 16**2 - 1
+                    c = 65280
                 }
                 bot.sendMessage({
                     to: channelID,
