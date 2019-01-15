@@ -52,7 +52,10 @@ var wyr = ["know when you were going to die, or when all the people around you a
 var badWords = ['bike','bicycle','biker','bicyclist','bikes','bicycles','bikers','bicyclists','biking','bik3','bicycl3','bik3r','bik3s','bicycl3s','bik3rs','bike$','bicycle$','bicyclist$','bicycli$t','bicycli$ts','bicycli$t$','biker$','bik3$','bicycl3$','bik3r$']
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
-    c = newMsgData.content.toLowerCase()
+    c = ''
+    if (newMsgData.content != undefined){
+        c = newMsgData.content.toLowerCase()
+    }
     b = -1
     while (b < badWords.length){
         b = b + 1
