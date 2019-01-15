@@ -24,10 +24,10 @@ var inputB = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball']
 var commandsA = ['test','info','stop','rep','update','alert']
-var commandsC = ['list','help','suggest','report','feedback','link','invite']
-var commandsD = ['joke','wyr','news']
+var commandsC = ['list','help','suggest','report','feedback','link','invite','news']
+var commandsD = ['joke','wyr','8ball']
 var commandsB = commandsC + commandsD
 var current = ''
 var currentB = ''
@@ -50,6 +50,10 @@ var silence = ['532890805371797504','532890871570497552','532890982652575754','5
 var jokes = ["My wife and I were happy for 20 years. Then, we met.","My goal is to live forever. So far so good.","People always laughed when I said I wanted to be a comedian. Well, nobody is laughing now.","My parents said I wouldn't get anywhere due to my procrastination. I told them, just you wait.","I bought gift wrap for my brother. When it was wrapped, I told them to wrap it in a different color so he would know when to stop.","My wife told me to stop impersonating a flamingo. I had to put my foot down.","If a person with multiple personalities threatens suicide, is it a hostage situation?","If Europe uses Euros, should Africa use Afros?","If time is money, is an ATM a time machine?","I'm writing a book. So far, I've got the page numbers done.","Everywhere is walking distance if you have the time.","Isn't a room always room temperature?","Don't tell jokes to a kleptomaniac. They take things literally.","I think all people that think they can read minds are idiots. You already knew that though.","An invisible man goes to the doctor's office. The nurse says, I'm afraid the doctor can't see you now.","Never get in an argument with an idiot. They'll bring you down to their level and beat you with experience.","Why is it called common knowledge if it is not that common?","If you punch yourself in the face and it really hurts, are you really strong or really weak? You're really stupid.","I went into a bookstore and asked the lady where the self-help section was. She said if she told me, it would defeat the purpose.","I went to a general store. They wouldn't let me buy anything specific.","I went to a torist booth and asked about people that were there a year ago.","If at first you don't succeed, skydiving isn't for you.","Whenever I think of the past, it brings back so many memories.","I don't like country music, but I don't mean to denigrate those who do. For those that like country music, denigrate means put down.","Everyone has photographic memory. Some just don't have film.","Old people always poke me at weddings and say that I am next. I started doing that to them at funerals.","All those who beleive in psychokinesis, raise my hand.","Ever noticed that it is a penny for your thoughts, yet your thoughts are your two cents? Someone is making apenny on the deal.","Right now, I'm having amnesia and deja vu at the same time. I feel like I've forgotten this before.","I think it is wrong that only one company makes monopoly.","What do you get when you cross a joke with a rhetorical question?","If you think that nobody cares about you, try missing a few payments.","How do you tell when you're out of invisible ink?","I went to a museum once that had the arms and heads of the statues from other museums.","I went to a place that said they served breakfast at any time. I orderd french toast during the renissance.","Hard work pays off in the future. Laziness pays off now.","The early bird gets the worm, but the second mouse gets the cheese.","I almost had a psychic girlfriend, but she left me before we met.","If everything seems to be going well, you must have overlooked something.","A clear concience is usually a sign of a bad memory.","I'm against picketing, but I don't know how to show it.","I don't have a girlfriend, but I have a friend who would be really mad if I said that.","I haven't slept for ten days because that would be to long.","I imagine that the inside of a cleaning bottle is really clean.","I saw a girl on the news that was born blind. The reporter said she didn't know the meaning of the word can't. I thought, that is sad. She can't see and she doesn't get simple contractions.","I like escalators. They can't break. They just become stairs.","I bought a seven dollar pen because I always lose my pens. I'm so sick of not caring.","I couldn't get my brakes fixed, so I just made my horn louder.","I have a vest. I my arms were cut off, it would be a jacket."]
 var wyr = ["know when you were going to die, or when all the people around you are going to die","be able to read minds, or send messages by thinking","be good looking but unaware of it, or be ugly and think you are good looking","make friends easily but like none of them, or like most people that won't become friends with you","have really good jokes but not understand humor, or think all jokes are hillarious but rarely here any","hear the same voice no matter who speaks, or speak random voices every time you talk","understand every language but not speak it, or speak every language but not understand it","constantly move homes to new locations, or never travel on vaction","see the future from all viewpoints and be blind, or see like you do now","understand animals, or be able to speak to animals","transform into any animal except a human at will, or only be a human","have all drink containers with holes in the bottom, or have no tap water and only bottled water","have your hands stick to any surface, or be insanely slippery"]
 var badWords = ['bike','bicycle','biker','bicyclist','bikes','bicycles','bikers','bicyclists','biking','bik3','bicycl3','bik3r','bik3s','bicycl3s','bik3rs','bike$','bicycle$','bicyclist$','bicycli$t','bicycli$ts','bicycli$t$','biker$','bik3$','bicycl3$','bik3r$','blke','blcycle','blker','blcyclist','bicyclst','blcyclst','blkes','blcycles','blkers','blcyclists','bicycllsts','blcycllsts','blking','biklng','blklng','blk3','blcycl3','blk3r','blk3s','blcycl3s','blk3rs','blke$','blcycle$','blcyclist$','bicycllst$','blcycllst$','blcycli$t','blcycli$ts','bicycll$t','bicycll$ts','blcycll$t','blcycll$ts','blker$','blk3$','blcycl3$','blk3r$']
+var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
+var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
+var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
+var eightBall = eightBallA + eightBallB + eightBallC
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     c = ''
@@ -432,6 +436,27 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 15){
                 currentB = input
                 output = 'Private annoncement has been received. Check `' + start + 'news` to see it.'
+            }
+            if (a == 16){
+                b = eightBall[Math.floor(eightBall.length*Math.random())]
+                if (eightBallA.includes(b)){
+                    c = 16**4 - 1
+                }
+                if (eightBallB.includes(b)){
+                    c = 16**6 - 1
+                }
+                if (eightBallC.includes(b)){
+                    c = 16**2 - 1
+                }
+                bot.sendMessage({
+                    to: channelID,
+                    embed: {
+                        title: bot.users[userID].username + ' asked:',
+                        color: c,
+                        fields: [
+                            {
+                                name: input,
+                                value: eightBall[b]}]}})
             }
         }
     }
