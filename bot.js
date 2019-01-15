@@ -490,6 +490,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     c = evt.d.mentions[1].username
                     output = '**' + b + ' :revolving_hearts: ' + c + '** = ' + b.substring(0, Math.floor(b.length)) + c.substring(Math.floor(c.length), c.length)
                 }
+            }
                     
         }
     }
