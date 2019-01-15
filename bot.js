@@ -442,7 +442,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 output = 'Private annoncement has been received. Check `' + start + 'news` to see it.'
             }
             if (a == 16){
-                b = eightBall[Math.floor(eightBall.length*Math.random())]
+                b = eightBall[Math.floor((eightBall.length - 1)*Math.random())]
                 console.log(b)
                 if (eightBallA.includes(b)){
                     c = 16**4 - 1
@@ -462,7 +462,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         fields: [
                             {
                                 name: input,
-                                value: eightBall[b]}]}})
+                                value: eightBall[b] + '.'}]}})
             }
         }
     }
