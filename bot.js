@@ -147,7 +147,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
         if (characters.includes(message.substring(c - 1, c).toLowerCase())){
             f = -1
             e = message.substring(c - 1, c).toLowerCase()
-            while (f < charB.length){
+            while (f + 1 < charB.length){
                 f = f + 1
                 if (charB[f].includes(message.substring(c - 1, c).toLowerCase())){
                     e = charC[f]
