@@ -80,7 +80,7 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     }
     b = 0
     d = ''
-    while (b < message.length){
+    while (b < c.length){
         b = b + 1
         if (characters.includes(c.substring(b - 1, b))){
             d = d + c.substring(b - 1, b).toLowerCase()
