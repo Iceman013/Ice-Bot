@@ -53,6 +53,7 @@ var jokes = ["My wife and I were happy for 20 years. Then, we met.","My goal is 
 var wyr = ["know when you were going to die, or when all the people around you are going to die","be able to read minds, or send messages by thinking","be good looking but unaware of it, or be ugly and think you are good looking","make friends easily but like none of them, or like most people that won't become friends with you","have really good jokes but not understand humor, or think all jokes are hillarious but rarely here any","hear the same voice no matter who speaks, or speak random voices every time you talk","understand every language but not speak it, or speak every language but not understand it","constantly move homes to new locations, or never travel on vaction","see the future from all viewpoints and be blind, or see like you do now","understand animals, or be able to speak to animals","transform into any animal except a human at will, or only be a human","have all drink containers with holes in the bottom, or have no tap water and only bottled water","have your hands stick to any surface, or be insanely slippery"]
 
 var badWords = ['bike','bicycle','bicycIe','biker','bicyclist','bicycIist','bikes','bicycles','bicycIes','bikers','bicyclists','bicycIists','biking','bik3','bicycl3','bicycI3','bik3r','bik3s','bicycl3s','bicycI3s','bik3rs','bike$','bicycle$','bicycIe$','bicyclist$','bicycli$t','bicycli$ts','bicycli$t$','bicycIist$','bicycIi$t','bicycIi$ts','bicycIi$t$','biker$','bik3$','bicycl3$','bicycI3$','bik3r$','blke','blcycle','blcycIe','blker','blcyclist','blcycIist','bicycIst','blcyclst','blcycIst','blkes','blcycles','blcycIes','blkers','blcyclists','blcycIists','bicycllsts','bicycIlsts','blcycllsts','blcycIlsts','blking','biklng','blklng','blk3','blcycl3','blcycI3','blk3r','blk3s','blcycl3s','blcycI3s','blk3rs','blke$','blcycle$','blcycIe$','blcyclist$','blcycIist$','bicycllst$','bicycIlst$','blcycllst$','blcycIlst$','blcycli$t','blcycIi$t','blcycli$ts','blcycIi$ts','bicycll$t','bicycIl$t','bicycll$ts','bicycIl$ts','blcycll$t','blcycIl$t','blcycll$ts','blcycIl$ts','blker$','blk3$','blcycl3$','blcycI3$','blk3r$']
+var characters = '`1234567890-=qwertyuiop[]\asdfghjkl;' + "'" + 'zxcvbnm,./~!@#$%^&*()_+{}|:"<>? '
 
 var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
@@ -126,10 +127,18 @@ bot.on('message', function (user, userID, channelID, message, evt){
             messageID: evt.d.id})
     }
     b = -1
+    c = 0
+    d = ''
+    while (c < message.length){
+        c = c + 1
+        if (characters.inlcudes(message.substring(c - 1, c)){
+            d = d + message.substring(c - 1, c).toLowerCase()
+        }
+    }
     while (b < badWords.length){
         b = b + 1
         if (badWords[b] != undefined){
-            if (message.toLowerCase().includes(badWords[b].toLowerCase())){
+            if (d.toLowerCase().includes(badWords[b].toLowerCase())){
                 bot.deleteMessage({
                     channelID: channelID,
                     messageID: evt.d.id})
