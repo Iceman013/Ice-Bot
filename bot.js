@@ -80,14 +80,16 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     b = -1
     while (b < badWords.length){
         b = b + 1
-        if (c.includes( badWords[b].toLowerCase())){
-            bot.deleteMessage({
-                channelID: newMsgData.channel_id,
-                messageID: newMsgData.id
-            })
-            bot.sendMessage({
-                to: newMsgData.channel_id,
-                message: 'You monster with a dirty mind. **Never ever say those dirty dirty words!** Please refrain from that and only use unicycles.'})
+        if (badWords[b] != undefined){
+            if (c.includes( badWords[b].toLowerCase())){
+                bot.deleteMessage({
+                    channelID: newMsgData.channel_id,
+                    messageID: newMsgData.id
+                })
+                bot.sendMessage({
+                    to: newMsgData.channel_id,
+                    message: 'You monster with a dirty mind. **Never ever say those dirty dirty words!** Please refrain from that and only use unicycles.'})
+            }
         }
     }
 })
@@ -126,7 +128,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     b = -1
     while (b < badWords.length){
         b = b + 1
-        if (badwords[b] != undefined){
+        if (badWords[b] != undefined){
             if (message.toLowerCase().includes(badWords[b].toLowerCase())){
                 bot.deleteMessage({
                     channelID: channelID,
