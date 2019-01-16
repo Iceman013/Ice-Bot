@@ -78,6 +78,15 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     if (newMsgData.content != undefined){
         c = newMsgData.content.toLowerCase()
     }
+    b = 0
+    d = ''
+    while (b < message.length){
+        b = b + 1
+        if (characters.includes(c.substring(b - 1, b))){
+            d = d + c.substring(b - 1, b).toLowerCase()
+        }
+    }
+    c = d
     b = -1
     while (b < badWords.length){
         b = b + 1
