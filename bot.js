@@ -63,6 +63,7 @@ var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Prob
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
 var eightBall = []
+var blackList = ['']
 b = -1
 while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
     b = b + 1
@@ -82,12 +83,21 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
     if (newMsgData.content != undefined){
         c = newMsgData.content.toLowerCase()
     }
-    b = 0
+    b = -1
+    c = 0
     d = ''
-    while (b < c.length){
-        b = b + 1
-        if (characters.includes(c.substring(b - 1, b))){
-            d = d + c.substring(b - 1, b).toLowerCase()
+    while (c < message.length){
+        c = c + 1
+        if (characters.includes(message.substring(c - 1, c).toLowerCase())){
+            f = -1
+            e = message.substring(c - 1, c).toLowerCase()
+            while (f + 1 < charB.length){
+                f = f + 1
+                if (charB[f].includes(message.substring(c - 1, c).toLowerCase())){
+                    e = charC[f]
+                }
+            }
+            d = d + e
         }
     }
     c = d
@@ -541,6 +551,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
                     
         }
+    }
+    if (blackList.includes(userID) && message.substring(0, start.length){
+        output = 'I do not like you.'
     }
     if (output != ''){
         bot.sendMessage({
