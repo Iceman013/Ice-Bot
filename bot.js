@@ -59,6 +59,10 @@ var characters = '`1234567890-=qwertyuiop[]\asdfghjkl;' + "'" + 'zxcvbnm,./~!@#$
 var charB = ['b','cç','eēêëèé3','g','iìïīîíl','k','nñ','r','s$','t','y']
 var charC = ['b','c','e','g','i','k','n','r','s','t','y']
 
+var day = 0
+var dates = [[1,1],[1,21],[2,14],[2,14],[3,17],[4,1],[5,5],[7,4],[10,31]]
+var events = ["New Year's Day","Martin Luther King Jr's Birthday",'Valentines Day',"Saint Patrick's Day","April Fool's Day",'Cinco De Mayo','Independence Day','Halloween']
+
 var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
@@ -149,6 +153,22 @@ bot.on('message', function (user, userID, channelID, message, evt){
             channelID: channelID,
             messageID: evt.d.id})
     }
+	d = new Date()
+	if (day != d.getDate()){
+		day = d.getDate()
+		b = 0
+		while (dates[b][0] != undefined){
+			if (dates[b][0] == d.getMonth() + 1 && dates[b][1] == d.getDate()){
+				bot.sendMessage({
+					to: '556589282362523669',
+					embed: {
+						title: 'Today is ' + events[b],
+						color: 305071,
+						timestamp: d}})
+			}
+			b = b + 1
+		}
+	}
     b = -1
     c = 0
     d = ''
