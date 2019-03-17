@@ -157,7 +157,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
 	if (day != d.getDate()){
 		day = d.getDate()
 		b = 0
-		while (dates[b][0] != undefined){
+		while (dates[b] != undefined){
 			if (dates[b][0] == d.getMonth() + 1 && dates[b][1] == d.getDate()){
 				bot.sendMessage({
 					to: '556589282362523669',
