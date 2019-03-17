@@ -572,7 +572,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     
         }
     }
-    if (blackList.includes(userID) && message.substring(0, start.length){
+    if (blackList.includes(userID) && message.substring(0, start.length)){
         output = 'I do not like you.'
     }
     if (output != ''){
