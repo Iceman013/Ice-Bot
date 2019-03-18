@@ -84,6 +84,9 @@ while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
 }
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
+	if (message == undefined){
+		message = ''
+	}
     c = ''
     if (newMsgData.content != undefined){
         c = newMsgData.content.toLowerCase()
