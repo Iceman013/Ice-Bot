@@ -59,8 +59,9 @@ var characters = '`1234567890-=qwertyuiop[]\asdfghjkl;' + "'" + 'zxcvbnm,./~!@#$
 var charB = ['b','cç','eēêëèé3','g','iìïīîíl','k','nñ','r','s$','t','y']
 var charC = ['b','c','e','g','i','k','n','r','s','t','y']
 
-var day = 0
-var dates = [[1,1],[1,21],[2,14],[2,14],[3,17],[4,1],[5,5],[7,4],[10,31]]
+var e = new Date()
+var day = e.getDate()
+var dates = [[1,1],[1,21],[2,14],[3,17],[4,1],[5,5],[7,4],[10,31]]
 var events = ["New Year's Day","Martin Luther King Jr's Birthday",'Valentines Day',"Saint Patrick's Day","April Fool's Day",'Cinco De Mayo','Independence Day','Halloween']
 
 var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
