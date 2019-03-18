@@ -61,8 +61,8 @@ var charC = ['b','c','e','g','i','k','n','r','s','t','y']
 
 var e = new Date()
 var day = e.getDate()
-var dates = [[1,1],[1,21],[2,14],[3,17],[4,1],[5,5],[7,4],[10,31]]
-var events = ["New Year's Day","Martin Luther King Jr's Birthday",'Valentines Day',"Saint Patrick's Day","April Fool's Day",'Cinco De Mayo','Independence Day','Halloween']
+var dates = [[1,1],[1,21],[1,22],[2,14],[3,17],[4,1],[5,5],[7,4],[10,31]]
+var events = ["New Year's Day","Martin Luther King Jr's Birthday","Wilbur Scoville's Birthday",'Valentines Day',"Saint Patrick's Day","April Fool's Day",'Cinco De Mayo','Independence Day','Halloween']
 
 var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Probably','Like totally brah','Sure. I guess so','Yeah']
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
