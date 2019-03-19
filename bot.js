@@ -121,7 +121,7 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt)){
         }
     }
 })
-bot.on('message', function (user, userID, channelID, message, evt){
+bot.on('message', function (user, userID, channelID, message, evt)){
     if (message == undefined){
 	    var message = ''
 	}
