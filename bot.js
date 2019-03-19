@@ -84,7 +84,7 @@ while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
 }
 
 bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
-    console.log(newMsgData)
+    var message = newMsgData.content
     b = -1
     c = 0
     d = ''
