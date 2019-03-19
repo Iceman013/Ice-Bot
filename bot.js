@@ -83,45 +83,47 @@ while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
     }
 }
 
-bot.on('messageUpdate', function(oldMsgData, newMsgData, evt)){
-    var message = newMsgData.content
-    console.log(newMsgData)
-    console.log(message)
-    b = -1
-    c = 0
-    d = ''
-    while (c < message.length){
-        c = c + 1
-        if (characters.includes(message.substring(c - 1, c).toLowerCase())){
-            f = -1
-            e = message.substring(c - 1, c).toLowerCase()
-            while (f + 1 < charB.length){
-                f = f + 1
-                if (charB[f].includes(message.substring(c - 1, c).toLowerCase())){
-                    e = charC[f]
-                }
-            }
-            d = d + e
-        }
-    }
-    c = d
-    b = -1
-    while (b < badWords.length){
-        b = b + 1
-        if (badWords[b] != undefined){
-            if (c.includes( badWords[b].toLowerCase())){
-                bot.deleteMessage({
-                    channelID: newMsgData.channel_id,
-                    messageID: newMsgData.id
-                })
-                bot.sendMessage({
-                    to: newMsgData.channel_id,
-                    message: 'You monster with a dirty mind. **Never ever say those dirty dirty words!** Please refrain from that and only use unicycles.'})
-            }
-        }
-    }
+bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
+	if (newMsgData.author != undefined){
+	    var message = newMsgData.content
+	    console.log(newMsgData)
+	    console.log(message)
+	    b = -1
+	    c = 0
+	    d = ''
+	    while (c < message.length){
+		c = c + 1
+		if (characters.includes(message.substring(c - 1, c).toLowerCase())){
+		    f = -1
+		    e = message.substring(c - 1, c).toLowerCase()
+		    while (f + 1 < charB.length){
+			f = f + 1
+			if (charB[f].includes(message.substring(c - 1, c).toLowerCase())){
+			    e = charC[f]
+			}
+		    }
+		    d = d + e
+		}
+	    }
+	    c = d
+	    b = -1
+	    while (b < badWords.length){
+		b = b + 1
+		if (badWords[b] != undefined){
+		    if (c.includes( badWords[b].toLowerCase())){
+			bot.deleteMessage({
+			    channelID: newMsgData.channel_id,
+			    messageID: newMsgData.id
+			})
+			bot.sendMessage({
+			    to: newMsgData.channel_id,
+			    message: 'You monster with a dirty mind. **Never ever say those dirty dirty words!** Please refrain from that and only use unicycles.'})
+		    }
+		}
+	    }
+	}
 })
-bot.on('message', function (user, userID, channelID, message, evt)){
+bot.on('message', function (user, userID, channelID, message, evt){
     if (message == undefined){
 	    var message = ''
 	}
