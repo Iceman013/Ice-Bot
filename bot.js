@@ -456,7 +456,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         messageID: c,
                         reaction: '😀'}, function(err, res){
                         b = 0
-                        while (b < 10000){
+                        while (b < 100000){
                             b = b + 0.001
                         }
                         bot.addReaction({
@@ -464,7 +464,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                             messageID: c,
                             reaction: '🙂'}, function(err, res){
                             b = 0
-                            while (b < 10000){
+                            while (b < 100000){
                                 b = b + 0.001
                             }
                             bot.addReaction({
@@ -472,7 +472,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                 messageID: c,
                                 reaction: '😐'}, function(err, res){
                                 b = 0
-                                while (b < 10000){
+                                while (b < 100000){
                                     b = b + 0.001
                                 }
                                 bot.addReaction({
@@ -480,7 +480,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                     messageID: c,
                                     reaction: '🙁'}, function(err, res){
                                     b = 0
-                                    while (b < 10000){
+                                    while (b < 100000){
                                         b = b + 0.001
                                     }
                                     bot.addReaction({
@@ -488,7 +488,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                         messageID: c,
                                         reaction: '😩'}, function(err, res){
                                         b = 0
-                                        while (b < 10000){
+                                        while (b < 100000){
                                             b = b + 0.001
                                         }
                                         bot.addReaction({
@@ -496,7 +496,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                                             messageID: c,
                                             reaction: '🔄'}, function(err, res){
                                             b = 0
-                                            while (b < 10000){
+                                            while (b < 100000){
                                                 b = b + 0.001
                                             }
                                             bot.addReaction({
