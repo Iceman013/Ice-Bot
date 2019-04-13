@@ -68,7 +68,7 @@ var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Prob
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
 var eightBall = []
-var blackList = ['']
+var blackList = ['485628261494292505','156126755646734336']
 b = -1
 while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
     b = b + 1
