@@ -282,7 +282,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
 			b = b + 1
 		}
 		console.log(Object.values(bot.servers[serverID].channels[channelID]))
-		console.log(Object.values(bot.servers[serverID].channels[channelID].last_message_id))
+		console.log(Object.values(bot.servers[serverID].channels[channelID].messages[c].content))
 		bot.deleteMessage({
 			channelID: channelID,
 			messageID: c})
