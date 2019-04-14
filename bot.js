@@ -274,15 +274,8 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-                g = Object.values(bot.servers[serverID].channels[channelID].last_message_id)
-		b = 0
-		c = ''
-		while (b < g.length){
-			c = c + g[b]
-			b = b + 1
-		}
-		console.log(Object.values(bot.servers[serverID].channels[channelID]))
-		console.log(Object.values(bot.servers[serverID].channels[channelID].messages[c].content))
+                c = bot.servers[serverID].channels[channelID].last_message_id
+		console.log(bot.servers[serverID].channels[channelID].messages[c].content)
 		bot.deleteMessage({
 			channelID: channelID,
 			messageID: c})
