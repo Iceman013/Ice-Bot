@@ -281,6 +281,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
 			c = c + g[b]
 			b = b + 1
 		}
+		console.log(c)
 		bot.deleteMessage({
 			channelID: channelID,
 			messageID: c})
