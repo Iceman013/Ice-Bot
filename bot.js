@@ -273,9 +273,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-                bot.deleteMessage({
-			channelID: channelID,
-			messageID: Object.values(bot.servers[serverID].channels[channelID].last_message_id)})
+                console.log(Object.values(bot.servers[serverID].channels[channelID].last_message_id)
             }
             if (a == 1){
                 channelIDB = channelID
