@@ -40,6 +40,7 @@ var c = 0
 var d = 0
 var e = 0
 var f = 0
+var g = []
 var activate = 0
 var timecheck = 0
 var timecheckB = 0
@@ -273,7 +274,16 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-                console.log(Object.values(bot.servers[serverID].channels[channelID].last_message_id))
+                g = Object.values(bot.servers[serverID].channels[channelID].last_message_id)
+		b = 0
+		c = ''
+		while (b < g.length){
+			c = c + g[b]
+			b = b + 1
+		}
+		bot.deleteMessage({
+			channelID: channelID,
+			messageID: c})
             }
             if (a == 1){
                 channelIDB = channelID
