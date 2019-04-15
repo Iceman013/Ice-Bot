@@ -25,9 +25,9 @@ var inputC = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship','embed']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship','embed','delete']
 var commandsA = ['test','info','stop','rep','update','alert']
-var commandsC = ['list','help','suggest','report','feedback','link','invite','news', 'embed']
+var commandsC = ['list','help','suggest','report','feedback','link','invite','news', 'embed','delete']
 var commandsD = ['joke','wyr','8ball','ship']
 var commandsB = []
 commandsB = commandsC + commandsD
@@ -274,18 +274,23 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-								bot.getMessages({
-									channelID: channelID,
-									limit: parseInt(inputC),
-									before: evt.d.id
-								}, function(err, res){
-									g = []
-									while (g.length < parseInt(inputC)){
-							      g[g.length] = res[g.length].id
-									}
-									bot.deleteMessages({
-										channelID: channelID,
-										messageIDs: g})})
+		if (parseInt(inputC) < 101 && parseInt(C) > 1){
+			bot.getMessages({
+				channelID: channelID,
+				limit: parseInt(inputC),
+				before: evt.d.id
+			}, function(err, res){
+				g = []
+				while (g.length < parseInt(inputC)){
+				      g[g.length] = res[g.length].id
+				}
+				bot.deleteMessages({
+					channelID: channelID,
+					messageIDs: g})})
+			    bot.deleteMessage({
+				    channelID: channelID,
+				    messageID: evt.d.id})
+		}
             }
             if (a == 1){
                 channelIDB = channelID
@@ -417,9 +422,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'ship {@user1} {@user2}'
                         lower = '< user1 >\nThis is the first lover\n< user2 >\nThis is the second lover'
                     }
-								  	if (b == 18){
+		    if (b == 18){
                         upper = 'embed {message}'
                         lower = '< message >\nThis is the message that will be put into the embed format'
+                    }
+		    if (b == 19){
+                        upper = 'delete {amount}'
+                        lower = '< amount >\nThis is the amount of messages that will be deleted and can be from 2 to 100'
                     }
                     if (input == ''){
                         upper = 'help {command}'
@@ -603,6 +612,25 @@ bot.on('message', function (user, userID, channelID, message, evt){
 							}
 						}
         }
+	if (a == 19){
+		if (parseInt(inputC) < 101 && parseInt(C) > 1){
+			bot.getMessages({
+				channelID: channelID,
+				limit: parseInt(inputC),
+				before: evt.d.id
+			}, function(err, res){
+				g = []
+				while (g.length < parseInt(inputC)){
+				      g[g.length] = res[g.length].id
+				}
+				bot.deleteMessages({
+					channelID: channelID,
+					messageIDs: g})})
+			    bot.deleteMessage({
+				    channelID: channelID,
+				    messageID: evt.d.id})
+		}
+            }
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
         output = ''
