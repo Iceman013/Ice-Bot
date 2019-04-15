@@ -69,7 +69,7 @@ var eightBallA = ['Yes','All numbers point to yes','Of course','Obviously','Prob
 var eightBallB = ['No','Not a chance','Doubt it','No way! You are a monster for suggesting that','Not likely','Firm no','Nah man','Nope']
 var eightBallC = ['I cannot say','Slip me a twenty and I will tell you','Huh? I was not paying attention','Maybe','Definite maybe']
 var eightBall = []
-var blackList = ['485628261494292505','156126755646734336']
+var blackList = ['485628261494292505','156126755646734336','566399780050305037']
 b = -1
 while (b < eightBallA.length && b < eightBallB.length && b < eightBallC.length){
     b = b + 1
@@ -581,7 +581,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
         }
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
-        output = 'I do not like you.'
+        output = ''
     }
     if (output != ''){
         bot.sendMessage({
