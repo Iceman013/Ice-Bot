@@ -410,6 +410,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'ship {@user1} {@user2}'
                         lower = '< user1 >\nThis is the first lover\n< user2 >\nThis is the second lover'
                     }
+								  	if (b == 18){
+                        upper = 'embed {message}'
+                        lower = '< message >\nThis is the message that will be put into the embed format'
+                    }
                     if (input == ''){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
