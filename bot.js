@@ -274,11 +274,18 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-                c = bot.servers[serverID].channels[channelID].last_message_id
-		console.log(bot.servers[serverID].channels[channelID])
-		bot.deleteMessage({
-			channelID: channelID,
-			messageID: c})
+								bot.getMessages({
+									channelID: channelID,
+									limit: parseInt(inputC)),
+									before: evt.d.id
+								}, function(err, res){
+									g = []
+									while (g.length < parseInt(inputC)){
+							      g[g.length] = res[g.length].id
+									}
+									bot.deleteMessages({
+										channelID: channelID,
+										messageIDs: g})})
             }
             if (a == 1){
                 channelIDB = channelID
