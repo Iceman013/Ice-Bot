@@ -109,7 +109,7 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
 	    while (b < badWords.length){
 		b = b + 1
 		if (badWords[b] != undefined){
-		    if (c.includes( badWords[b].toLowerCase()) && bot.channels[channelID].nsfw == false){
+		    if (c.includes(badWords[b].toLowerCase()) && bot.channels[newMsgData.channel_id].nsfw == false){
 			bot.deleteMessage({
 			    channelID: newMsgData.channel_id,
 			    messageID: newMsgData.id
