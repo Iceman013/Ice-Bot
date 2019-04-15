@@ -276,7 +276,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
             if (a == 0){
 								bot.getMessages({
 									channelID: channelID,
-									limit: parseInt(inputC)),
+									limit: parseInt(inputC),
 									before: evt.d.id
 								}, function(err, res){
 									g = []
