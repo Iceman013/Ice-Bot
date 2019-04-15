@@ -274,23 +274,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
             if (a == 0){
-		if (parseInt(inputC) < 101 && parseInt(C) > 1){
-			bot.getMessages({
-				channelID: channelID,
-				limit: parseInt(inputC),
-				before: evt.d.id
-			}, function(err, res){
-				g = []
-				while (g.length < parseInt(inputC)){
-				      g[g.length] = res[g.length].id
-				}
-				bot.deleteMessages({
-					channelID: channelID,
-					messageIDs: g})})
-			    bot.deleteMessage({
-				    channelID: channelID,
-				    messageID: evt.d.id})
-		}
+		out = 'uhh'
             }
             if (a == 1){
                 channelIDB = channelID
@@ -613,7 +597,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
 						}
         }
 	if (a == 19){
-		if (parseInt(inputC) < 101 && parseInt(C) > 1){
+		if (parseInt(inputC) < 101 && parseInt(inputC) > 1){
 			bot.getMessages({
 				channelID: channelID,
 				limit: parseInt(inputC),
