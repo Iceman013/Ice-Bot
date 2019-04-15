@@ -193,7 +193,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     while (b < badWords.length){
         b = b + 1
         if (badWords[b] != undefined){
-            if (d.toLowerCase().includes(badWords[b].toLowerCase()) && bot.channels[channelID].nsfw == false){
+            if (d.toLowerCase().includes(badWords[b].toLowerCase()) && !channel.nsfw){
                 bot.deleteMessage({
                     channelID: channelID,
                     messageID: evt.d.id})
