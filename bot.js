@@ -123,7 +123,7 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
 	}
 })
 bot.on('message', function (user, userID, channelID, message, evt){
-    if (message == undefined || blacklist.includes(userID)){
+    if (message == undefined || blackList.includes(userID)){
 	    var message = ''
 	}
     output = ''
