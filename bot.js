@@ -578,11 +578,18 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 }
             }
 					  if (a == 18){
-							bot.sendMessage({
-								to: channelID,
-								embed: {
-									color: 305071,
-									title: inputC}})
+							if (inputC.length != ''){
+								b = new Date()
+								bot.sendMessage({
+									to: channelID,
+									embed: {
+										color: 305071,
+										author: {
+											name: bot.users[userID].username,
+											icon_url: 'https://cdn.discordapp.com/avatars/' + userID + '/' + bot.users[userID].avatar + '.png?size=32'},
+										title: inputC,
+									  timestamp: b}})
+							}
 						}
         }
     }
