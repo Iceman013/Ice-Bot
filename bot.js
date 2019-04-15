@@ -25,9 +25,9 @@ var inputC = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship','embed']
 var commandsA = ['test','info','stop','rep','update','alert']
-var commandsC = ['list','help','suggest','report','feedback','link','invite','news']
+var commandsC = ['list','help','suggest','report','feedback','link','invite','news', 'embed']
 var commandsD = ['joke','wyr','8ball','ship']
 var commandsB = []
 commandsB = commandsC + commandsD
@@ -123,7 +123,7 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
 	}
 })
 bot.on('message', function (user, userID, channelID, message, evt){
-    if (message == undefined){
+    if (message == undefined || blacklist.includes(userID)){
 	    var message = ''
 	}
     output = ''
@@ -577,7 +577,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     output = ':hearts:**' + b + ' :revolving_hearts: ' + c + ' = ' + b.substring(0, Math.floor(0.5*b.length)) + c.substring(Math.floor(0.5*c.length), c.length) + '**:hearts:'
                 }
             }
-                    
+					  if (a == 18){
+							bot.sendMessage({
+								to: channelID,
+								embed: {
+									color: 305071,
+									title: inputC}})
+						}
         }
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
