@@ -146,8 +146,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
             bot.editMessage({
                 channelID: '568176805249548304',
                 messageID: data[0],
-                message: c})})
-    }
+                message: c})
+        }
+    })
     if (message == undefined || blackList.includes(userID)){
 	    var message = ''
 	}
