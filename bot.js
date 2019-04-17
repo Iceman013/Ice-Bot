@@ -617,11 +617,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
 				bot.deleteMessages({
 					channelID: channelID,
 					messageIDs: g})})
-			    bot.deleteMessage({
-				    channelID: channelID,
-				    messageID: evt.d.id})
-		    }
-        }
+			bot.deleteMessage({
+		        channelID: channelID,
+			    messageID: evt.d.id})
+		}
     }
     if (a == 20){
         bot.sendMessage({
