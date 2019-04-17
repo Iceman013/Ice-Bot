@@ -299,13 +299,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
                     a = a + 1
                 }
             }
-            if (users == []){
+            if (users == null){
                 bot.editMessage({
                     channelID: '568176805249548304',
                     messageID: data[0],
                     message: userID})
             }
-            if (users != [] && !users.includes(userID)){
+            if (users != null && !users.includes(userID)){
                 b = 0
                 bot.getMessage({
                     channelID: '568176805249548304',
