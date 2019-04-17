@@ -307,11 +307,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
             }
             if (users != [] && !users.includes(userID)){
                 b = 0
-                c = ''
+                bot.getMessage({
+                    channelID: '568176805249548304',
+                    messageID: data[0]}, function(err, res){
+                    c = res.content})
                 bot.editMessage({
                     channelID: '568176805249548304',
                     messageID: data[0],
-                    message: bot.channels['568176805249548304'].messages[data[0]] + ' ' + userID})
+                    message: c + ' ' + userID})
             }
             if (a == 0){
 		out = 'uhh'
