@@ -130,9 +130,13 @@ bot.on('message', function (user, userID, channelID, message, evt){
     a = 0
     b = ''
     c = ''
-    if (bot.channels['568176805249548304'].messages[data[0]] != 'New'){
-        while (a < bot.channels['568176805249548304'].messages[data[0]].length){
-            b = bot.channels['568176805249548304'].messages[data[0]].substring(a, a + 18)
+    bot.getMessage({
+        channelID: '568176805249548304',
+        messageID: data[0]}, function(err, res){
+        d = res.content})
+    if (d != 'New'){
+        while (a < d.length){
+            b = d.substring(a, a + 18)
             c = c + ' ' + b
             users[users.length] = b
             a = a + 19
