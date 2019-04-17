@@ -25,8 +25,8 @@ var inputC = ''
 var output = ''
 var outputB = ''
 var outputC = ''
-var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship','embed','delete']
-var commandsA = ['test','info','stop','rep','update','alert']
+var commands = ['test','info','list','help','suggest','report','feedback','link','invite','stop','rep','joke','wyr','update','news','alert','8ball','ship','embed','delete','data']
+var commandsA = ['test','info','stop','rep','update','alert','data']
 var commandsC = ['list','help','suggest','report','feedback','link','invite','news', 'embed','delete']
 var commandsD = ['joke','wyr','8ball','ship']
 var commandsB = []
@@ -418,6 +418,10 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         upper = 'help {command}'
                         lower = '< command >\nInsert any command here to receive instructions on syntax as well as purpose'
                     }
+                    if (b == 20){
+                        upper = 'data'
+                        lower = 'This will create a new data message'
+                    }
                     output = '```md\n' + start + upper + '\n='
                     b = 0
                     while (b < upper.length){
@@ -613,8 +617,15 @@ bot.on('message', function (user, userID, channelID, message, evt){
 			    bot.deleteMessage({
 				    channelID: channelID,
 				    messageID: evt.d.id})
-		}
-            }
+		    }
+        }
+    }
+    if (a == 20){
+        bot.sendMessage({
+            to: '568176805249548304',
+            message: 'New'
+        }, function(err, res){
+            console.log(res.id)})
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
         output = ''
