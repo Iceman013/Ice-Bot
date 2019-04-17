@@ -42,7 +42,7 @@ var e = 0
 var f = 0
 var g = []
 
-var data = ['568192052089716738']
+var data = ['568194978942156810']
 var users = []
 
 var activate = 0
@@ -132,20 +132,21 @@ bot.on('message', function (user, userID, channelID, message, evt){
     c = ''
     bot.getMessage({
         channelID: '568176805249548304',
-        messageID: data[0]}, function(err, res){
+        messageID: data[0]
+    }, function(err, res){
         if (err) throw err
-        d = res.content})
-    if (d != 'New'){
-        while (a < d.length){
-            b = d.substring(a, a + 18)
-            c = c + ' ' + b
-            users[users.length] = b
-            a = a + 19
-        }
-        bot.editMessage({
-            channelID: '568176805249548304',
-            messageID: data[0],
-            message: c})
+        d = res.content
+        if (d != 'New'){
+            while (a < d.length){
+                b = d.substring(a, a + 18)
+                c = c + ' ' + b
+                users[users.length] = b
+                a = a + 19
+            }
+            bot.editMessage({
+                channelID: '568176805249548304',
+                messageID: data[0],
+                message: c})})
     }
     if (message == undefined || blackList.includes(userID)){
 	    var message = ''
@@ -310,13 +311,14 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 b = 0
                 bot.getMessage({
                     channelID: '568176805249548304',
-                    messageID: data[0]}, function(err, res){
+                    messageID: data[0]
+                }, function(err, res){
                     if (err) throw err
-                    c = res.content})
-                bot.editMessage({
-                    channelID: '568176805249548304',
-                    messageID: data[0],
-                    message: c + ' ' + userID})
+                    c = res.content
+                    bot.editMessage({
+                        channelID: '568176805249548304',
+                        messageID: data[0],
+                        message: c + ' ' + userID})})
             }
             if (a == 0){
 		out = 'uhh'
