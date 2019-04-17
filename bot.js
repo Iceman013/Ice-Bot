@@ -133,6 +133,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     bot.getMessage({
         channelID: '568176805249548304',
         messageID: data[0]}, function(err, res){
+        if (err) throw err
         d = res.content})
     if (d != 'New'){
         while (a < d.length){
@@ -310,6 +311,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 bot.getMessage({
                     channelID: '568176805249548304',
                     messageID: data[0]}, function(err, res){
+                    if (err) throw err
                     c = res.content})
                 bot.editMessage({
                     channelID: '568176805249548304',
