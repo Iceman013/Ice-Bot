@@ -603,29 +603,30 @@ bot.on('message', function (user, userID, channelID, message, evt){
 							}
 						}
         }
-	if (a == 19){
-		if (parseInt(inputC) < 101 && parseInt(inputC) > 1){
-			bot.getMessages({
-				channelID: channelID,
-				limit: parseInt(inputC),
-				before: evt.d.id
-			}, function(err, res){
-				g = []
-				while (g.length < parseInt(inputC)){
-				      g[g.length] = res[g.length].id
-				}
-				bot.deleteMessages({
-					channelID: channelID,
-					messageIDs: g})})
-			bot.deleteMessage({
-		        channelID: channelID,
-			    messageID: evt.d.id})
-		}
-    }
-    if (a == 20){
-        bot.sendMessage({
-            to: '568176805249548304',
-            message: 'New'})
+	    if (a == 19){
+		    if (parseInt(inputC) < 101 && parseInt(inputC) > 1){
+			    bot.getMessages({
+	    			channelID: channelID,
+		    		limit: parseInt(inputC),
+		    		before: evt.d.id
+		    	}, function(err, res){
+		    		g = []
+		    		while (g.length < parseInt(inputC)){
+		    		      g[g.length] = res[g.length].id
+		    		}
+		    		bot.deleteMessages({
+		    			channelID: channelID,
+		    			messageIDs: g})})
+		    	bot.deleteMessage({
+		            channelID: channelID,
+			        messageID: evt.d.id})
+		    }
+        }
+        if (a == 20){
+            bot.sendMessage({
+                to: '568176805249548304',
+                message: 'New'})
+        }
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
         output = ''
