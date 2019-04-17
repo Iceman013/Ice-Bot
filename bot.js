@@ -251,6 +251,9 @@ bot.on('message', function (user, userID, channelID, message, evt){
                         name: 'Ping',
                         value: c + ' milliseconds'}]}})
     }
+    if (channelID == '568176805249548304'){
+        console.log(evt.d.id)
+    }
     if (message.substring(0, start.length) == start){
         input = message.substring(start.length, message.length)
         inputB = input
@@ -623,9 +626,7 @@ bot.on('message', function (user, userID, channelID, message, evt){
     if (a == 20){
         bot.sendMessage({
             to: '568176805249548304',
-            message: 'New'
-        }, function(err, res){
-            console.log(res.id)})
+            message: 'New'})
     }
     if (blackList.includes(userID) && message.substring(0, start.length) && output != ''){
         output = ''
