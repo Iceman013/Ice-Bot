@@ -41,6 +41,10 @@ var d = 0
 var e = 0
 var f = 0
 var g = []
+
+var data = ['568182930795528192']
+var users = []
+
 var activate = 0
 var timecheck = 0
 var timecheckB = 0
@@ -123,6 +127,21 @@ bot.on('messageUpdate', function(oldMsgData, newMsgData, evt){
 	}
 })
 bot.on('message', function (user, userID, channelID, message, evt){
+    a = 0
+    b = ''
+    c = ''
+    if (bot.channels['568176805249548304'].messages[data[0]] != 'New'){
+        while (a < bot.channels['568176805249548304'].messages[data[0]].length){
+            b = bot.channels['568176805249548304'].messages[data[0]].substring(a, a + 18)
+            c = c + ' ' + b
+            users[users.length] = b
+            a = a + 19
+        }
+        bot.editMessage({
+            channelID: '568176805249548304',
+            messageID: data[0],
+            message: c})
+    }
     if (message == undefined || blackList.includes(userID)){
 	    var message = ''
 	}
@@ -275,6 +294,20 @@ bot.on('message', function (user, userID, channelID, message, evt){
                 while (a < commands.length && commands[a] != inputB){
                     a = a + 1
                 }
+            }
+            if (users == []){
+                bot.editMessage({
+                    channelID: '568176805249548304',
+                    messageID: data[0],
+                    message: userID})
+            }
+            if (users != [] && !users.includes(userID)){
+                b = 0
+                c = ''
+                bot.editMessage({
+                    channelID: '568176805249548304',
+                    messageID: data[0],
+                    message: bot.channels['568176805249548304'].messages[data[0]] + ' ' + userID})
             }
             if (a == 0){
 		out = 'uhh'
